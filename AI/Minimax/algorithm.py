@@ -5,7 +5,7 @@ from random import randint
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 
-def minimax(position, depth, max_player, game):
+def minimax(position, depth, a, b, max_player, game):
     if depth == 0 or position.winner() != None:
         return position.evaluate(), position
 
@@ -14,13 +14,17 @@ def minimax(position, depth, max_player, game):
         best_move = None
         options = []
         for move in get_all_moves(position, WHITE, game):
-            evaluation = minimax(move, depth - 1, False, game)[0]
+            evaluation = minimax(move, depth - 1, a, b, False, game)[0]
             if evaluation > maxEval:
                 options = [(evaluation, move)]
                 maxEval = evaluation
             elif evaluation == maxEval:
                 options.append((evaluation, move))
             
+            a = max(a, maxEval)
+            if a >= b:
+                break
+
         choice = options[randint(0, len(options) - 1)]
 
         return choice[0], choice[1]
@@ -29,13 +33,17 @@ def minimax(position, depth, max_player, game):
         minEval = float('inf')
         best_move = None
         for move in get_all_moves(position, RED, game):
-            evaluation = minimax(move, depth - 1, True, game)[0]
+            evaluation = minimax(move, depth - 1, a, b, True, game)[0]
             if evaluation < minEval:
                 options = [(evaluation, move)]
                 minEval = evaluation
             elif evaluation == minEval:
                 options.append((evaluation, move))
         
+            b = min(b, minEval)
+            if b <= a:
+                break
+
         choice = options[randint(0, len(options) - 1)]
 
         return choice[0], choice[1]

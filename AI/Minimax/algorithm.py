@@ -1,5 +1,6 @@
-from copy import deepcopy
 import pygame
+from copy import deepcopy
+from random import randint
 
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
@@ -11,23 +12,33 @@ def minimax(position, depth, max_player, game):
     if max_player:
         maxEval = float('-inf')
         best_move = None
+        options = []
         for move in get_all_moves(position, WHITE, game):
             evaluation = minimax(move, depth - 1, False, game)[0]
-            maxEval = max(maxEval, evaluation)
-            if maxEval == evaluation:
-                best_move = move
+            if evaluation > maxEval:
+                options = [(evaluation, move)]
+                maxEval = evaluation
+            elif evaluation == maxEval:
+                options.append((evaluation, move))
+            
+        choice = options[randint(0, len(options) - 1)]
 
-        return maxEval, best_move
+        return choice[0], choice[1]
+
     else:
         minEval = float('inf')
         best_move = None
         for move in get_all_moves(position, RED, game):
             evaluation = minimax(move, depth - 1, True, game)[0]
-            minEval = min(minEval, evaluation)
-            if minEval == evaluation:
-                best_move = move
+            if evaluation < minEval:
+                options = [(evaluation, move)]
+                minEval = evaluation
+            elif evaluation == minEval:
+                options.append((evaluation, move))
+        
+        choice = options[randint(0, len(options) - 1)]
 
-        return minEval, best_move
+        return choice[0], choice[1]
 
 def simulate_move(piece, move, board, game, skip):
     board.move(piece, move[0], move[1])

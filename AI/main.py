@@ -1,7 +1,7 @@
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
-from Checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE
+from Checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE, DIFFICULTY
 from Checkers.game import Game
 from Minimax.algorithm import minimax
 import time
@@ -26,7 +26,7 @@ def main():
         clock.tick(FPS)
 
         if game.turn == WHITE:
-            value, new_board = minimax(game.get_board(), 4, float('-inf'), float('inf'), WHITE, game)
+            value, new_board = minimax(game.get_board(), DIFFICULTY, float('-inf'), float('inf'), WHITE, game)
             game.ai_move(new_board)
 
         if game.winner() != None:

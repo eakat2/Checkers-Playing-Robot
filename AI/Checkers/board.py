@@ -77,7 +77,7 @@ class Board:
         elif self.white_left <= 0:
             return RED
         else:
-            red_valid, white_vaild = False, False
+            red_valid, white_valid = False, False
 
             for row in range(ROWS):
                 for col in range(COLS):

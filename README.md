@@ -4,6 +4,7 @@ Change Log:
 
 ===28/10/2020===
 - Added the abilty to toggle force take
+- Added difficulty levels
 
 ===27/10/2020===
 

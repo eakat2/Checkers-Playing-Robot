@@ -12,6 +12,13 @@ BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
 GOLD = (255, 223, 0)
 
+# Difficulty Levels
+Novice = 1
+Beginner = 2
+Intermediate = 3
+Hard = 4
+
 # Settings
 FORCE_MOVE = True
 FIRST = RED
+DIFFICULTY = Intermediate

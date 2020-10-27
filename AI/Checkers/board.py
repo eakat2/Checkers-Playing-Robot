@@ -76,8 +76,26 @@ class Board:
             return WHITE
         elif self.white_left <= 0:
             return RED
-        
-        return None
+        else:
+            red_valid = 0
+            white_valid = 0
+
+            for row in range(ROWS):
+                for col in range(COLS):
+                    piece = self.get_piece(row, col)
+                    if piece != 0 and piece.colour == RED:
+                        if self.get_valid_moves(piece):
+                            red_valid += 1
+                    elif piece != 0 and piece.colour == WHITE:
+                        if self.get_valid_moves(piece):
+                            white_valid += 1
+
+            if red_valid == 0:
+                return WHITE
+            elif white_valid == 0:
+                return RED
+            else:
+                return None
 
     def get_valid_moves(self, piece):
         moves = {}

@@ -2,6 +2,9 @@
 
 Change Log:
 
+===28/10/2020===
+- Added the abilty to toggle force take
+
 ===27/10/2020===
 
 - Added Additional Win Condition

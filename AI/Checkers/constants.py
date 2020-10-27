@@ -11,3 +11,7 @@ BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
 GOLD = (255, 223, 0)
+
+# Settings
+FORCE_MOVE = True
+FIRST = RED

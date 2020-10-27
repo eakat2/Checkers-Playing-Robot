@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, BLUE, SQUARE_SIZE
+from .constants import RED, WHITE, BLUE, SQUARE_SIZE, FORCE_MOVE, FIRST
 from .board import Board
 
 class Game:
@@ -15,8 +15,9 @@ class Game:
     def _init(self):
         self.selected = None
         self.board = Board()
-        self.turn = RED
+        self.turn = FIRST
         self.valid_moves = {}
+        self.longest_move = 0
 
     def winner(self):
         return self.board.winner()
@@ -34,7 +35,7 @@ class Game:
         piece = self.board.get_piece(row, col)
         if piece != 0 and piece.colour == self.turn:
             self.selected = piece
-            self.valid_moves = self.board.get_valid_moves(piece)
+            self.valid_moves = self.board.get_valid_moves(piece, self.longest_move)
             return True
         
         return False
@@ -63,6 +64,8 @@ class Game:
             self.turn = WHITE
         else:
             self.turn = RED
+        if FORCE_MOVE:
+            self.longest_move = self.board.get_longest_move(self.turn)
 
     def get_board(self):
         return self.board

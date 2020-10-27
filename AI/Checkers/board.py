@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE
+from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_MOVE
 from .piece import Piece
 
 class Board:
@@ -77,27 +77,26 @@ class Board:
         elif self.white_left <= 0:
             return RED
         else:
-            red_valid = 0
-            white_valid = 0
+            red_valid, white_vaild = False, False
 
             for row in range(ROWS):
                 for col in range(COLS):
                     piece = self.get_piece(row, col)
                     if piece != 0 and piece.colour == RED:
                         if self.get_valid_moves(piece):
-                            red_valid += 1
+                            red_valid = True
                     elif piece != 0 and piece.colour == WHITE:
                         if self.get_valid_moves(piece):
-                            white_valid += 1
+                            white_valid = True
 
-            if red_valid == 0:
+            if not red_valid:
                 return WHITE
-            elif white_valid == 0:
+            elif not white_valid:
                 return RED
             else:
                 return None
 
-    def get_valid_moves(self, piece):
+    def get_valid_moves(self, piece, longest_move = 0):
         moves = {}
         left = piece.col - 1
         right = piece.col + 1
@@ -110,7 +109,37 @@ class Board:
             moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, piece.colour, left))
             moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, piece.colour, right))
 
+        if FORCE_MOVE:
+            max_move = 0
+            move_list = {} 
+
+            for move in moves:
+                if max_move == len(moves[move]):
+                    move_list[move] = moves[move]
+                elif max_move < len(moves[move]):
+                    max_move = len(moves[move])
+                    move_list = {move: moves[move]}
+
+            if move_list != {}:
+                if len(list(move_list.values())[0]) >= longest_move:
+                    return move_list
+                else:
+                    return {}
+
         return moves
+
+    def get_longest_move(self, colour):
+        longest_move = 0
+        for row in range(ROWS):
+            for col in range(COLS):
+                piece = self.get_piece(row, col)
+                if piece != 0 and piece.colour == colour:
+                    moves = self.get_valid_moves(piece)
+                    if moves != {}:
+                        num_moves = list(moves.values())
+                        longest_move = max(longest_move, len(num_moves[0]))
+
+        return longest_move
 
     def _traverse_left(self, start, stop, step, colour, left, skipped=[]):
         moves = {}

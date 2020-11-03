@@ -1,4 +1,4 @@
-# FYP
+# Checkers Playing Robot
 
 Change Log:
 

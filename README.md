@@ -2,6 +2,9 @@
 
 Change Log:
 
+===11/11/2020===
+- Added output to AI moves that will be passed to Game Piece Movement System
+
 ===28/10/2020===
 - Added the abilty to toggle force take
 - Added difficulty levels

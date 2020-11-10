@@ -11,7 +11,6 @@ def minimax(position, depth, a, b, max_player, game):
 
     if max_player:
         maxEval = float('-inf')
-        best_move = None
         options = []
         for move in get_all_moves(position, WHITE, game):
             evaluation = minimax(move, depth - 1, a, b, False, game)[0]
@@ -31,7 +30,7 @@ def minimax(position, depth, a, b, max_player, game):
 
     else:
         minEval = float('inf')
-        best_move = None
+        options = []
         for move in get_all_moves(position, RED, game):
             evaluation = minimax(move, depth - 1, a, b, True, game)[0]
             if evaluation < minEval:

@@ -22,3 +22,4 @@ Hard = 4
 FORCE_MOVE = True
 FIRST = RED
 DIFFICULTY = Intermediate
+COMPUTER = False

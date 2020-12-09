@@ -17,7 +17,6 @@ class Game:
         self.board = Board()
         self.turn = FIRST
         self.valid_moves = {}
-        self.longest_move = 0
 
     def winner(self):
         return self.board.winner()
@@ -35,7 +34,7 @@ class Game:
         piece = self.board.get_piece(row, col)
         if piece != 0 and piece.colour == self.turn:
             self.selected = piece
-            self.valid_moves = self.board.get_valid_moves(piece, self.longest_move)
+            self.valid_moves = self.board.get_valid_moves(piece)
             return True
         
         return False
@@ -64,8 +63,6 @@ class Game:
             self.turn = WHITE
         else:
             self.turn = RED
-        if FORCE_MOVE:
-            self.longest_move = self.board.get_longest_move(self.turn)
 
     def get_board(self):
         return self.board

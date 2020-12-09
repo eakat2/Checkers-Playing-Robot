@@ -1,4 +1,5 @@
 import pygame
+from collections import OrderedDict 
 from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_MOVE
 from .piece import Piece
 
@@ -62,8 +63,9 @@ class Board:
                 if piece != 0:
                     piece.draw(win)
 
-    def remove(self, pieces):
-        for piece in pieces:
+    def remove(self, coords):
+        for coord in coords:
+            piece = self.get_piece(coord[0],coord[1])
             self.board[piece.row][piece.col] = 0
             if piece != 0 and not piece.king:
                 if piece.colour == RED:
@@ -96,20 +98,119 @@ class Board:
             else:
                 return None
 
-    def get_valid_moves(self, piece, longest_move = 0):
+    def can_jump_from_to(self, piece, old_row, old_col, new_row, new_col, step_size) -> bool:
+        '''evaluates to True if boundaries are right and if current piece between start/end location is of different color'''
+        if not (piece.king or new_row == old_row + piece.direction * step_size):
+            # invalid direction
+            return False
+        if not (0 <= new_row < ROWS and 0 <= new_col < COLS):
+            # outside of board
+            return False
+        new_loc = self.get_piece(new_row, new_col)
+        if new_loc != 0:
+            # jump location not empty
+            return False
+        # all base obstacles have been overcome
+        if step_size == 2:
+            middle_row = (old_row + new_row) // 2
+            middle_col = (old_col + new_col) // 2
+            middle_piece = self.get_piece(middle_row, middle_col)
+            if middle_piece == 0 or middle_piece.colour == piece.colour:
+                return False
+        
+        return True
+
+    def _get_valid_moves(self, piece, row, col, jump_path, step_size):
+        ''' this method takes in a row and col of where the piece is currently during the jump. It also takes a jump_path so a king
+        does not jump back to where it came from and to prevent jumping over the same piece twice.
+        Finally a step_size is provided: if it's 1 only short jumps are considered, if 2 then jump chains are considered
+        '''
+        up, down, left, right = [x + y * step_size for x in [row, col] for y in [-1, +1]]
+
         moves = {}
+
+        for new_col in [left, right]:
+            for new_row in [up, down]:
+                if not self.can_jump_from_to(piece, row, col, new_row, new_col, step_size):
+                    continue
+                
+                if step_size == 1:
+                    moves[new_row, new_col] = []
+                else:
+                    middle_row = (new_row + row) // 2
+                    middle_col = (new_col + col) // 2
+                    if (middle_row, middle_col) in jump_path:
+                        continue
+                    new_jump_path = jump_path.copy()
+                    new_jump_path.append((middle_row, middle_col))
+                    moves[(new_row, new_col)] = new_jump_path
+                    # recursive call
+                    moves.update(self._get_valid_moves(piece, new_row, new_col, new_jump_path, step_size))
+        return moves
+
+    def get_valid_moves(self, piece):
+        moves = OrderedDict()
+
+        moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 1))
+        moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 2))
+
+        if FORCE_MOVE:
+            skipped = False
+
+            for move in moves:
+                if len(moves[move]): 
+                    skipped = True
+                    break
+
+            if skipped:
+                move_list = {}
+
+                for move, jumps in moves.items():
+                    valid = True
+
+                    if len(jumps)  == 0:
+                        continue
+
+                    for check, skips in moves.items():
+                        if move == check:
+                            continue
+
+                        if jumps[len(jumps)-1] in skips:
+                            valid = False
+                            break
+
+                    if valid:
+                        move_list.update({move: jumps})
+                    
+                return move_list
+
+        return moves
+
+    """ def get_valid_moves(self, piece, longest_move = 0):
+        moves = OrderedDict()
         left = piece.col - 1
         right = piece.col + 1
         row = piece.row
 
         if piece.colour == RED or piece.king:
-            moves.update(self._traverse_left(row - 1, max(row - 3, -1), -1, piece.colour, left))
-            moves.update(self._traverse_right(row - 1, max(row - 3, -1), -1, piece.colour, right))
+            moves.update(self._traverse_left(row - 1, max(row - 3, -1), -1, piece.colour, left, piece.king))
+            moves.update(self._traverse_right(row - 1, max(row - 3, -1), -1, piece.colour, right, piece.king))
         if piece.colour == WHITE or piece.king:
-            moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, piece.colour, left))
-            moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, piece.colour, right))
+            moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, piece.colour, left, piece.king))
+            moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, piece.colour, right, piece.king))
 
+        
         if FORCE_MOVE:
+            for move in moves:
+                if len(moves[moves]):
+                    skipped == True
+                    break
+            
+            if skipped:
+                pass
+
+
+
             max_move = 0
             move_list = {} 
 
@@ -126,84 +227,4 @@ class Board:
                 else:
                     return {}
 
-        return moves
-
-    def get_longest_move(self, colour):
-        longest_move = 0
-        for row in range(ROWS):
-            for col in range(COLS):
-                piece = self.get_piece(row, col)
-                if piece != 0 and piece.colour == colour:
-                    moves = self.get_valid_moves(piece)
-                    if moves != {}:
-                        num_moves = list(moves.values())
-                        longest_move = max(longest_move, len(num_moves[0]))
-
-        return longest_move
-
-    def _traverse_left(self, start, stop, step, colour, left, skipped=[]):
-        moves = {}
-        last = []
-        for r in range(start, stop, step):
-            if left < 0:
-                break
-            
-            current = self.board[r][left]
-            if current == 0:
-                if skipped and not last:
-                    break
-                elif skipped:
-                    moves[(r, left)] = last + skipped
-                else:
-                    moves[(r, left)] = last
-                
-                if last:
-                    if step == -1:
-                        row = max(r - 3, -1)
-                    else:
-                        row = min(r + 3, ROWS)
-                    
-                    moves.update(self._traverse_left(r + step, row, step, colour, left - 1, skipped=last))
-                    moves.update(self._traverse_right(r + step, row, step, colour, left + 1, skipped=last))
-                break
-            elif current.colour == colour:
-                break
-            else:
-                last = [current]
-            left -= 1
-        
-        return moves
-
-    def _traverse_right(self, start, stop, step, colour, right, skipped=[]):
-        moves = {}
-        last = []
-        for r in range(start, stop, step):
-            if right >= COLS:
-                break
-            
-            current = self.board[r][right]
-            if current == 0:
-                if skipped and not last:
-                    break
-                elif skipped:
-                    moves[(r, right)] = last + skipped
-                else:
-                    moves[(r, right)] = last
-                
-                if last:
-                    if step == -1:
-                        row = max(r - 3, -1)
-                    else:
-                        row = min(r + 3, ROWS)
-                    
-                    moves.update(self._traverse_left(r + step, row, step, colour, right - 1, skipped=last))
-                    moves.update(self._traverse_right(r + step, row, step, colour, right + 1, skipped=last))
-                break
-            elif current.colour == colour:
-                break
-            else:
-                last = [current]
-
-            right += 1
-
-        return moves
+        return moves """

@@ -2,6 +2,10 @@
 
 Change Log:
 
+===10/12/2020===
+- Changed the method which valid moves are found (fixing issues with jumping forward and the backwards)
+- Created PSOC files
+
 ===11/11/2020===
 - Added output to AI moves that will be passed to Game Piece Movement System
 

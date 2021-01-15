@@ -1,6 +1,6 @@
 # Checkers Playing Robot
 
-Change Log:
+##Change Log:
 
 ===10/12/2020===
 - Changed the method which valid moves are found (fixing issues with jumping forward and the backwards)

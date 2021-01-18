@@ -19,7 +19,7 @@ Intermediate = 3
 Hard = 4
 
 # Settings
-FORCE_MOVE = True
+FORCE_TAKE = True
 FIRST = RED
 DIFFICULTY = Intermediate
 COMPUTER = False

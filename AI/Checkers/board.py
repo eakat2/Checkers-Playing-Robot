@@ -4,7 +4,7 @@
 
 import pygame
 from collections import OrderedDict 
-from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_MOVE
+from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_TAKE
 from .piece import Piece
 
 class Board:
@@ -100,10 +100,10 @@ class Board:
                 for col in range(COLS):
                     piece = self.get_piece(row, col)
                     if piece != 0 and piece.colour == RED:
-                        if self.get_valid_moves(piece):
+                        if self.get_moves_list(piece):
                             red_valid = True
                     elif piece != 0 and piece.colour == WHITE:
-                        if self.get_valid_moves(piece):
+                        if self.get_moves_list(piece):
                             white_valid = True
 
             if not red_valid:
@@ -160,42 +160,50 @@ class Board:
         return moves
 
     # Gets a list of all valid moves
-    def get_valid_moves(self, piece):
+    def get_moves_list(self, piece, must_attack = FORCE_TAKE):
         moves = OrderedDict()
 
         # Adds single jumps and chain jumps to the list
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 1))
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 2))
 
-        # If force move is active will remove no viable options from the list
-        if FORCE_MOVE:
-            skipped = False
-
-            for move in moves:
-                if len(moves[move]): 
-                    skipped = True
-                    break
-
-            if skipped:
-                move_list = {}
-
-                for move, jumps in moves.items():
-                    valid = True
-
-                    if len(jumps)  == 0:
-                        continue
-
-                    for check, skips in moves.items():
-                        if move == check:
-                            continue
-
-                        if jumps[len(jumps)-1] in skips:
-                            valid = False
-                            break
-
-                    if valid:
-                        move_list.update({move: jumps})
-                    
-                return move_list
+        if must_attack:
+            moves = self._forced_take(moves, piece)
 
         return moves
+
+    # Runs if game is played with force move active, removes non viable options
+    def _forced_take(self, moves, piece):
+        if not self.can_attack(piece.colour):
+            return moves
+
+        move_list = {}
+
+        for move, jumps in moves.items():
+            valid = True
+
+            if len(jumps)  == 0:
+                continue
+
+            for check, skips in moves.items():
+                if move == check:
+                    continue
+
+                if jumps[len(jumps)-1] in skips:
+                    valid = False
+                    break
+
+            if valid:
+                move_list.update({move: jumps})
+            
+        return move_list
+
+    # Checkes to see if any of the players pieces can attack
+    def can_attack(self, turn):
+        pieces = self.get_all_pieces(turn)
+        
+        for piece in pieces:
+            moves = self.get_moves_list(piece, False)
+            for move in moves:
+                if len(moves[move]):
+                    return True

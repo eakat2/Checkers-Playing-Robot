@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, BLUE, SQUARE_SIZE, FORCE_MOVE, FIRST
+from .constants import RED, WHITE, BLUE, SQUARE_SIZE, FIRST
 from .board import Board
 
 class Game:
@@ -34,15 +34,8 @@ class Game:
         piece = self.board.get_piece(row, col)
 
         if piece != 0 and piece.colour == self.turn:
-
-            if FORCE_MOVE:
-                for row in self.board.board:
-                    for piece in row:
-                        
-                return False
-
             self.selected = piece
-            self.valid_moves = self.board.get_valid_moves(piece)
+            self.valid_moves = self.board.get_moves_list(piece)
             return True
         
         return False

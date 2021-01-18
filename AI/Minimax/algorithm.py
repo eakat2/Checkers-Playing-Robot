@@ -58,7 +58,7 @@ def get_all_moves(board, colour, game):
     moves = []
     longest_move = board.get_longest_move(colour)
     for piece in board.get_all_pieces(colour):
-        valid_moves = board.get_valid_moves(piece, longest_move)
+        valid_moves = board.get_moves_list(piece, longest_move)
         for move, skip in valid_moves.items():
             temp_board = deepcopy(board)
             temp_piece = temp_board.get_piece(piece.row, piece.col)

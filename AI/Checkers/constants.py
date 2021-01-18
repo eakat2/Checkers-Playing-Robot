@@ -20,6 +20,8 @@ Hard = 4
 
 # Settings
 FORCE_TAKE = True
+KING_MOVE = False
+KING_TAKE = True
 FIRST = RED
 DIFFICULTY = Intermediate
 COMPUTER = False

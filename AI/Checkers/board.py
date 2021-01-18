@@ -1,10 +1,6 @@
-# Notes:
-# When turn changes check if any piece can take and set a value as true/false this is checked when finding valid moves
-
-
 import pygame
 from collections import OrderedDict 
-from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_TAKE
+from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_TAKE, KING_TAKE
 from .piece import Piece
 
 class Board:
@@ -169,6 +165,20 @@ class Board:
 
         if must_attack:
             moves = self._forced_take(moves, piece)
+
+        if piece.king and KING_TAKE and must_attack:
+            move_list = {}
+            longest = 0
+            for move, jumps in moves.items():
+                if jumps == 0 and longest == 0:
+                    move_list.update({move: jumps})
+                elif len(jumps) > longest:
+                    longest = len(jumps)
+                    move_list = {move: jumps}
+                elif len(jumps) == longest:
+                    move_list.update({move: jumps})
+            
+            return move_list
 
         return moves
 

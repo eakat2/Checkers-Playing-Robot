@@ -1,24 +1,32 @@
+# Notes:
+# When turn changes check if any piece can take and set a value as true/false this is checked when finding valid moves
+
+
 import pygame
 from collections import OrderedDict 
 from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_MOVE
 from .piece import Piece
 
 class Board:
+    # Initialise board characteristics 
     def __init__(self):
         self.board = []
         self.red_left = self.white_left = 12
         self.red_kings = self.white_kings = 0
         self.create_board()
 
+    # Draws the board in the window
     def draw_squares(self, win):
         win.fill(BLACK)
         for row in range(ROWS):
             for col in range(row % 2, COLS, 2):
                 pygame.draw.rect(win, RED, (row*SQUARE_SIZE, col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
+    # Calculates the "score" of the board for the AI
     def evaluate(self):
         return self.white_left - self.red_left + (self.white_kings * 0.5 - self.red_kings * 0.5)
 
+    # Returns all pieces of one colour
     def get_all_pieces(self, colour):
         pieces = []
         for row in self.board:
@@ -27,6 +35,7 @@ class Board:
                     pieces.append(piece)
         return pieces
 
+    # Moves a piece to a new row and col, changes piece to king if needed
     def move(self, piece, row, col):
         self.board[piece.row][piece.col], self.board[row][col] = self.board[row][col], self.board[piece.row][piece.col]
         piece.move(row, col)
@@ -38,9 +47,11 @@ class Board:
             else:
                 self.red_kings += 1
 
+    # Returns piece in row and col
     def get_piece(self, row, col):
         return self.board[row][col]
 
+    # Populates a board with pieces in their starting positions
     def create_board(self):
         for row in range(ROWS):
             self.board.append([])
@@ -55,6 +66,7 @@ class Board:
                 else:
                     self.board[row].append(0)
 
+    # Draws the board and pieces
     def draw(self, win):
         self.draw_squares(win)
         for row in range(ROWS):
@@ -63,6 +75,7 @@ class Board:
                 if piece != 0:
                     piece.draw(win)
 
+    # Removes a piece
     def remove(self, coords):
         for coord in coords:
             piece = self.get_piece(coord[0],coord[1])
@@ -73,6 +86,7 @@ class Board:
                 else:
                     self.white_left -= 1
     
+    # Checks to see if their is a winner
     def winner(self):
         if self.red_left <= 0:
             return WHITE
@@ -81,6 +95,7 @@ class Board:
         else:
             red_valid, white_valid = False, False
 
+            # Checks if red or white have any valid moves
             for row in range(ROWS):
                 for col in range(COLS):
                     piece = self.get_piece(row, col)
@@ -98,8 +113,8 @@ class Board:
             else:
                 return None
 
+    # Checks if a piece can jump from one postion to a new position
     def can_jump_from_to(self, piece, old_row, old_col, new_row, new_col, step_size) -> bool:
-        '''evaluates to True if boundaries are right and if current piece between start/end location is of different color'''
         if not (piece.king or new_row == old_row + piece.direction * step_size):
             # invalid direction
             return False
@@ -120,13 +135,9 @@ class Board:
         
         return True
 
+    # Uses the current row, col and jump path to check for valid moves. Step_size 1 = short jump, step_size 2 = jump chain
     def _get_valid_moves(self, piece, row, col, jump_path, step_size):
-        ''' this method takes in a row and col of where the piece is currently during the jump. It also takes a jump_path so a king
-        does not jump back to where it came from and to prevent jumping over the same piece twice.
-        Finally a step_size is provided: if it's 1 only short jumps are considered, if 2 then jump chains are considered
-        '''
         up, down, left, right = [x + y * step_size for x in [row, col] for y in [-1, +1]]
-
         moves = {}
 
         for new_col in [left, right]:
@@ -148,12 +159,15 @@ class Board:
                     moves.update(self._get_valid_moves(piece, new_row, new_col, new_jump_path, step_size))
         return moves
 
+    # Gets a list of all valid moves
     def get_valid_moves(self, piece):
         moves = OrderedDict()
 
+        # Adds single jumps and chain jumps to the list
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 1))
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 2))
 
+        # If force move is active will remove no viable options from the list
         if FORCE_MOVE:
             skipped = False
 
@@ -185,46 +199,3 @@ class Board:
                 return move_list
 
         return moves
-
-    """ def get_valid_moves(self, piece, longest_move = 0):
-        moves = OrderedDict()
-        left = piece.col - 1
-        right = piece.col + 1
-        row = piece.row
-
-        if piece.colour == RED or piece.king:
-            moves.update(self._traverse_left(row - 1, max(row - 3, -1), -1, piece.colour, left, piece.king))
-            moves.update(self._traverse_right(row - 1, max(row - 3, -1), -1, piece.colour, right, piece.king))
-        if piece.colour == WHITE or piece.king:
-            moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, piece.colour, left, piece.king))
-            moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, piece.colour, right, piece.king))
-
-        
-        if FORCE_MOVE:
-            for move in moves:
-                if len(moves[moves]):
-                    skipped == True
-                    break
-            
-            if skipped:
-                pass
-
-
-
-            max_move = 0
-            move_list = {} 
-
-            for move in moves:
-                if max_move == len(moves[move]):
-                    move_list[move] = moves[move]
-                elif max_move < len(moves[move]):
-                    max_move = len(moves[move])
-                    move_list = {move: moves[move]}
-
-            if move_list != {}:
-                if len(list(move_list.values())[0]) >= longest_move:
-                    return move_list
-                else:
-                    return {}
-
-        return moves """

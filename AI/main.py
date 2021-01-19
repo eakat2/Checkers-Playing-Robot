@@ -1,18 +1,22 @@
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
-from Checkers.constants import COMPUTER, WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE, DIFFICULTY, ROWS, COLS
+import pickle
+from Checkers.constants import COMPUTER, WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE, DIFFICULTY, ROWS, COLS, HOR_MARG, VERT_MARG
 from Checkers.game import Game
 from Minimax.algorithm import minimax
+import UI.save_load
 import time
 
 FPS = 60
 
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+WIN = pygame.display.set_mode((WIDTH + HOR_MARG*2, HEIGHT + VERT_MARG*2), pygame.NOFRAME)
+WIN.fill(WHITE)
+GAME_WIN = pygame.Surface((WIDTH, HEIGHT))
 pygame.display.set_caption('Checkers')
 
 def get_row_col_from_mouse(pos):
-    x, y = pos
+    x, y = pos[0] - HOR_MARG, pos[1] - VERT_MARG
     row = y // SQUARE_SIZE
     col = x // SQUARE_SIZE
     return row, col
@@ -38,7 +42,7 @@ def board_change(old, new, turn):
 def main():
     run = True
     clock = pygame.time.Clock()
-    game = Game(WIN)
+    game = Game(GAME_WIN)
 
     while run:
         clock.tick(FPS)
@@ -64,11 +68,31 @@ def main():
                 run = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if game.turn == RED or not COMPUTER:
-                    pos = pygame.mouse.get_pos()
-                    row, col = get_row_col_from_mouse(pos)
-                    game.select(row, col)
+                pos = pygame.mouse.get_pos()
 
+                if pos[0] > HOR_MARG and pos[0] < HOR_MARG + WIDTH and pos[1] > VERT_MARG and pos[1] < HEIGHT + VERT_MARG:
+                    if game.turn == RED or not COMPUTER:
+                        pos = pygame.mouse.get_pos()
+                        row, col = get_row_col_from_mouse(pos)
+                        game.select(row, col)
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_s:
+                    save_name = time.strftime("%H_%M_%S", time.localtime())
+                    save_name = "/Save Games/" + save_name + ".pickle"
+                    print(save_name)
+                    path = open(save_name,'wb')
+                    pickle.dump(game.board, path)
+                    path.close()
+                    print("Game Saved")
+                if event.key == pygame.K_l:
+                    game.board = pickle.load(open('save','rb'))
+                    print("Game Loaded")
+                if event.key == pygame.K_q:
+                    print("Game Quit")
+                    run = False
+        
+        WIN.blit(GAME_WIN, (HOR_MARG, VERT_MARG))
         game.update()
 
     pygame.quit()

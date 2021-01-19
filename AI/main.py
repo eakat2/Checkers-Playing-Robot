@@ -79,7 +79,7 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_s:
                     save_name = time.strftime("%H_%M_%S", time.localtime())
-                    save_name = "/Save Games/" + save_name + ".pickle"
+                    save_name = os.getcwd() + "/Save Games/" + save_name + ".pickle"
                     print(save_name)
                     path = open(save_name,'wb')
                     pickle.dump(game.board, path)

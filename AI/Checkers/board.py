@@ -110,7 +110,7 @@ class Board:
                 return None
 
     # Checks if a piece can jump from one postion to a new position
-    def can_jump_from_to(self, piece, old_row, old_col, new_row, new_col, step_size) -> bool:
+    def can_jump_from_to(self, piece, old_row, old_col, new_row, new_col, step_size):
         if not (piece.king or new_row == old_row + piece.direction * step_size):
             # invalid direction
             return False

@@ -10,7 +10,7 @@ import time
 
 FPS = 60
 
-WIN = pygame.display.set_mode((WIDTH + HOR_MARG*2, HEIGHT + VERT_MARG*2), pygame.NOFRAME)
+WIN = pygame.display.set_mode((WIDTH + HOR_MARG*2, HEIGHT + VERT_MARG*2))#, pygame.NOFRAME)
 WIN.fill(WHITE)
 GAME_WIN = pygame.Surface((WIDTH, HEIGHT))
 pygame.display.set_caption('Checkers')
@@ -52,7 +52,7 @@ def main():
             board_change(game.board, new_board, WHITE)
             game.ai_move(new_board)
 
-        """if game.winner() != None:
+        if game.winner() != None:
             game.update()
             print("Game Over")
             if game.winner() == WHITE:
@@ -60,7 +60,7 @@ def main():
             else:
                  print("The winner is: RED")
             time.sleep(3)
-            run = False"""
+            run = False
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

@@ -21,7 +21,7 @@ Hard = 4
 
 # Settings
 FORCE_TAKE = True
-KING_MOVE = False
+KING_MOVE = True
 KING_TAKE = True
 FIRST = RED
 DIFFICULTY = Intermediate

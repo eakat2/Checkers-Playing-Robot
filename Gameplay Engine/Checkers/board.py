@@ -1,6 +1,6 @@
 import pygame
 from collections import OrderedDict 
-from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_TAKE, KING_TAKE
+from .constants import RED, WHITE, BLACK, ROWS, COLS, SQUARE_SIZE, FORCE_TAKE, KING_TAKE, KING_MOVE
 from .piece import Piece
 
 class Board:
@@ -121,6 +121,7 @@ class Board:
         if new_loc != 0:
             # jump location not empty
             return False
+        
         # all base obstacles have been overcome
         if step_size == 2:
             middle_row = (old_row + new_row) // 2
@@ -129,6 +130,18 @@ class Board:
             if middle_piece == 0 or middle_piece.colour == piece.colour:
                 return False
         
+        # If the KING_MOVE variant rule is active, this checks the alternate move type
+        if KING_MOVE and piece.king and step_size != 1 and step_size != 2:
+            jumped = 0
+            for row, col in zip(range(old_row, new_row), range(old_col, new_col)):
+                    if ((row, col) == (old_row, old_col)) or ((row, col) == (new_row, new_col)):
+                        continue
+                    if self.get_piece(row, col) != 0:
+                        jumped += 1
+            
+            if jumped > 1:
+                return False
+
         return True
 
     # Uses the current row, col and jump path to check for valid moves. Step_size 1 = short jump, step_size 2 = jump chain
@@ -153,6 +166,7 @@ class Board:
                     moves[(new_row, new_col)] = new_jump_path
                     # recursive call
                     moves.update(self._get_valid_moves(piece, new_row, new_col, new_jump_path, step_size))
+        
         return moves
 
     # Gets a list of all valid moves
@@ -163,9 +177,15 @@ class Board:
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 1))
         moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], 2))
 
+        # If the KING_MOVE variant rule is active, this checks the alternate move type
+        if KING_MOVE and piece.king:
+            for step_size in range(3, 7):
+                moves.update(self._get_valid_moves(piece, piece.row, piece.col, [], step_size))
+        
         if must_attack:
             moves = self._forced_take(moves, piece)
 
+        # If the KING_TAKE variant rule is active this checks what the largest king jump is
         if piece.king and KING_TAKE and must_attack:
             move_list = {}
             longest = 0
@@ -182,7 +202,7 @@ class Board:
 
         return moves
 
-    # Runs if game is played with force move active, removes non viable options
+    # If the FORCE_TAKE variant rule is active, this removes non-viable options
     def _forced_take(self, moves, piece):
         if not self.can_attack(piece.colour):
             return moves

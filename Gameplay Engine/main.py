@@ -5,7 +5,7 @@ import pickle
 from Checkers.constants import COMPUTER, WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE, DIFFICULTY, ROWS, COLS, HOR_MARG, VERT_MARG
 from Checkers.game import Game
 from Minimax.algorithm import minimax
-from UI.save_load import *
+#from UI.save_load import *
 import time
 
 FPS = 60
@@ -48,11 +48,14 @@ def main():
         clock.tick(FPS)
 
         if game.turn == WHITE and COMPUTER:
+            WIN.blit(GAME_WIN, (HOR_MARG, VERT_MARG))
+            game.update()
             new_board = minimax(game.get_board(), DIFFICULTY, float('-inf'), float('inf'), WHITE, game)[1]
             board_change(game.board, new_board, WHITE)
             game.ai_move(new_board)
 
         if game.winner() != None:
+            WIN.blit(GAME_WIN, (HOR_MARG, VERT_MARG))
             game.update()
             print("Game Over")
             if game.winner() == WHITE:
@@ -71,7 +74,7 @@ def main():
                 pos = pygame.mouse.get_pos()
 
                 if pos[0] > HOR_MARG and pos[0] < HOR_MARG + WIDTH and pos[1] > VERT_MARG and pos[1] < HEIGHT + VERT_MARG:
-                    if game.turn == RED or not COMPUTER:
+                    if (game.turn == RED) or (not COMPUTER):
                         pos = pygame.mouse.get_pos()
                         row, col = get_row_col_from_mouse(pos)
                         game.select(row, col)

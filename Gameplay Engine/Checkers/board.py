@@ -76,11 +76,15 @@ class Board:
         for coord in coords:
             piece = self.get_piece(coord[0],coord[1])
             self.board[piece.row][piece.col] = 0
-            if piece != 0 and not piece.king:
+            if piece != 0:
                 if piece.colour == RED:
                     self.red_left -= 1
+                    if piece.king:
+                        self.red_kings -= 1
                 else:
                     self.white_left -= 1
+                    if piece.king:
+                        self.white_kings -= 1
     
     # Checks to see if their is a winner
     def winner(self):

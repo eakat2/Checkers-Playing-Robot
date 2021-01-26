@@ -14,9 +14,9 @@ def load_game(game, win):
 
 def save_game(game):
     save_name = time.strftime("%d_%m_%y %H_%M", time.localtime())
-    save_name = os.getcwd() + "/Save Games/" + save_name
+    save_name = "Gameplay Engine\Save Games\" + save_name
     print(save_name)
-    path = open('save_name','wb')
+    path = open(r'save_name','wb')
     pickle.dump(game.board, path)
     print("Game Saved")
     return

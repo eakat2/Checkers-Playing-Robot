@@ -21,13 +21,14 @@ Intermediate = 3
 Hard = 4
 
 # Settings
-FORCE_TAKE = True
+FORCE_TAKE = False
 KING_MOVE = False
-KING_TAKE = True
-FIRST = RED
+KING_TAKE = False
+FIRST = WHITE
 DIFFICULTY = Intermediate
-COMPUTER = True
-# """ def main():
+COMPUTER = False
+
+# def main():
 #     #int_load()
 #     load_const()
 
@@ -52,4 +53,4 @@ COMPUTER = True
 #     FIRST = tuple(map(int, data[3][1:-1].split(', ')))
 #     DIFFICULTY = int(data[4])
 
-# main() """
+# main()

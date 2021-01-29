@@ -137,8 +137,16 @@ class Board:
         # If the KING_MOVE variant rule is active, this checks the alternate move type
         if KING_MOVE and piece.king and step_size != 1 and step_size != 2:
             jumped = 0
-            for row, col in zip(range(old_row, new_row), range(old_col, new_col)):
-                    if ((row, col) == (old_row, old_col)) or ((row, col) == (new_row, new_col)):
+            row_step, col_step = 1, 1
+            if old_row > new_row:
+                row_step = -1
+            if old_col > new_col:
+                col_step = -1
+            rows = list(range(old_row, new_row, row_step))
+            cols = list(range(old_col, new_col, col_step))
+            values = tuple(zip(rows,cols))
+            for row, col in values:
+                    if (row, col) == (old_row, old_col):
                         continue
                     if self.get_piece(row, col) != 0:
                         jumped += 1
@@ -149,20 +157,20 @@ class Board:
         return True
 
     # Uses the current row, col and jump path to check for valid moves. Step_size 1 = short jump, step_size 2 = jump chain
-    def _get_valid_moves(self, piece, row, col, jump_path, step_size):
-        up, down, left, right = [x + y * step_size for x in [row, col] for y in [-1, +1]]
+    def _get_valid_moves(self, piece, old_row, old_col, jump_path, step_size):
+        up, down, left, right = [x + y * step_size for x in [old_row, old_col] for y in [-1, +1]]
         moves = {}
 
         for new_col in [left, right]:
             for new_row in [up, down]:
-                if not self.can_jump_from_to(piece, row, col, new_row, new_col, step_size):
+                if not self.can_jump_from_to(piece, old_row, old_col, new_row, new_col, step_size):
                     continue
                 
                 if step_size == 1:
                     moves[new_row, new_col] = []
-                else:
-                    middle_row = (new_row + row) // 2
-                    middle_col = (new_col + col) // 2
+                if step_size == 2 and not piece.king or step_size == 2 and piece.king and not KING_MOVE:
+                    middle_row = (new_row + old_row) // 2
+                    middle_col = (new_col + old_col) // 2
                     if (middle_row, middle_col) in jump_path:
                         continue
                     new_jump_path = jump_path.copy()
@@ -170,7 +178,26 @@ class Board:
                     moves[(new_row, new_col)] = new_jump_path
                     # recursive call
                     moves.update(self._get_valid_moves(piece, new_row, new_col, new_jump_path, step_size))
-        
+
+                if KING_MOVE and piece.king and step_size != 1 and step_size != 2:
+                    row_step, col_step = 1, 1
+                    if old_row > new_row:
+                        row_step = -1
+                    if old_col > new_col:
+                        col_step = -1
+                    rows = list(range(old_row, new_row, row_step))
+                    cols = list(range(old_col, new_col, col_step))
+                    values = tuple(zip(rows,cols))
+                    for row, col in values:
+                        if (row, col) in jump_path:
+                            continue
+                        new_jump_path = jump_path.copy()
+                        new_jump_path.append((row,col))
+                        moves[(new_row, new_col)] = new_jump_path
+
+                        for step_size in range (2,7):
+                            moves.update(self._get_valid_moves(piece, new_row, new_col, new_jump_path, step_size))
+
         return moves
 
     # Gets a list of all valid moves
@@ -232,7 +259,7 @@ class Board:
             
         return move_list
 
-    # Checkes to see if any of the players pieces can attack
+    # Checkers to see if any of the players pieces can attack
     def can_attack(self, turn):
         pieces = self.get_all_pieces(turn)
         

@@ -1,0 +1,7 @@
+Added Component: Designator=P1(Power)
+Added Pin To Net: NetName=Vcc Pin=P1-1
+Added Pin To Net: NetName=Vcc Pin=P1-2
+Added Pin To Net: NetName=Vcc Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=GND Pin=P1-5
+Added Pin To Net: NetName=GND Pin=P1-6

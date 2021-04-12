@@ -1,0 +1,4 @@
+Added Component: Designator=A1(Address)
+Added Pin To Net: NetName=NetA1_1 Pin=A1-1
+Added Pin To Net: NetName=NetA1_2 Pin=A1-2
+Added Pin To Net: NetName=NetA1_3 Pin=A1-3

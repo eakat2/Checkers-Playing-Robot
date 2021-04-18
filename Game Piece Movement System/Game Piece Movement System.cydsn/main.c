@@ -11,6 +11,12 @@
 */
 #include "project.h"
 
+void initalize();
+void setServo_1(float degrees);
+void setServo_2(float degrees);
+void setServo_3(float degrees);
+void setServo_4(float degrees);
+
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -31,6 +37,41 @@ int angle_to_pwm(float angle) {
     float CV = 4439 - (4 * angle) / 3
     
     return round(CV)
+}
+
+void initalize() {
+    PWM_1_Start();
+    PWM_2_Start();
+    PWM_3_Start();
+    PWM_4_Start();
+}
+
+void setServo_1(float degrees) {
+    unsigned int val;
+    val = degrees/180*2000 + 2000);
+
+    PWM_1_WriteCompare(val)
+}
+
+void setServo_2(float degrees) {
+    unsigned int val;
+    val = degrees/180*2000 + 2000);
+
+    PWM_2_WriteCompare(val)
+}
+
+void setServo_3(float degrees) {
+    unsigned int val;
+    val = degrees/180*2000 + 2000);
+
+    PWM_3_WriteCompare(val)
+}
+
+void setServo_4(float degrees) {
+    unsigned int val;
+    val = degrees/180*2000 + 2000);
+
+    PWM_4_WriteCompare(val)
 }
 
 /* [] END OF FILE */

@@ -1,0 +1,59 @@
+# Game Piece Movement System
+# 2021-04-18 11:46:11Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "Pin_1(0)" iocell 0 3
+set_io "Pin_2(0)" iocell 0 1
+set_io "Pin_3(0)" iocell 0 0
+set_io "Pin_4(0)" iocell 0 2
+set_location "\PWM_1:PWMUDB:status_2\" 3 3 0 1
+set_location "\PWM_2:PWMUDB:status_2\" 3 0 0 2
+set_location "\PWM_2:PWMUDB:up_cnt_final\" 3 0 0 0
+set_location "\PWM_3:PWMUDB:status_2\" 2 2 0 2
+set_location "\PWM_3:PWMUDB:up_cnt_final\" 2 2 0 0
+set_location "\PWM_4:PWMUDB:status_2\" 2 1 0 2
+set_location "\PWM_4:PWMUDB:up_cnt_final\" 2 1 0 0
+set_location "\PWM_1:PWMUDB:genblk1:ctrlreg\" 3 3 6
+set_location "\PWM_1:PWMUDB:genblk8:stsreg\" 3 3 4
+set_location "\PWM_1:PWMUDB:sP16:pwmdp:u0\" 2 3 2
+set_location "\PWM_1:PWMUDB:sP16:pwmdp:u1\" 3 3 2
+set_location "\PWM_2:PWMUDB:genblk1:ctrlreg\" 2 0 6
+set_location "\PWM_2:PWMUDB:genblk8:stsreg\" 3 0 4
+set_location "\PWM_2:PWMUDB:sP16:pwmdp:u0\" 2 0 2
+set_location "\PWM_2:PWMUDB:sP16:pwmdp:u1\" 3 0 2
+set_location "\PWM_3:PWMUDB:genblk1:ctrlreg\" 2 2 6
+set_location "\PWM_3:PWMUDB:genblk8:stsreg\" 2 2 4
+set_location "\PWM_3:PWMUDB:sP16:pwmdp:u0\" 3 2 2
+set_location "\PWM_3:PWMUDB:sP16:pwmdp:u1\" 2 2 2
+set_location "\PWM_4:PWMUDB:genblk1:ctrlreg\" 2 1 6
+set_location "\PWM_4:PWMUDB:genblk8:stsreg\" 2 1 4
+set_location "\PWM_4:PWMUDB:sP16:pwmdp:u0\" 3 1 2
+set_location "\PWM_4:PWMUDB:sP16:pwmdp:u1\" 2 1 2
+set_location "\PWM_1:PWMUDB:runmode_enable\" 3 3 0 0
+set_location "\PWM_1:PWMUDB:prevCompare1\" 3 3 0 3
+set_location "\PWM_1:PWMUDB:status_0\" 3 3 1 0
+set_location "Net_408" 3 3 0 2
+set_location "\PWM_2:PWMUDB:runmode_enable\" 2 0 0 0
+set_location "\PWM_2:PWMUDB:prevCompare1\" 3 0 1 1
+set_location "\PWM_2:PWMUDB:status_0\" 3 0 1 2
+set_location "\PWM_2:PWMUDB:status_1\" 3 0 0 3
+set_location "\PWM_2:PWMUDB:up_cnt\" 3 0 0 1
+set_location "Net_417" 3 0 1 0
+set_location "\PWM_3:PWMUDB:runmode_enable\" 2 2 0 3
+set_location "\PWM_3:PWMUDB:prevCompare1\" 2 2 1 1
+set_location "\PWM_3:PWMUDB:status_0\" 2 2 1 2
+set_location "\PWM_3:PWMUDB:status_1\" 2 3 0 0
+set_location "\PWM_3:PWMUDB:up_cnt\" 2 2 0 1
+set_location "Net_597" 2 2 1 0
+set_location "\PWM_4:PWMUDB:runmode_enable\" 2 1 0 3
+set_location "\PWM_4:PWMUDB:prevCompare1\" 2 1 1 1
+set_location "\PWM_4:PWMUDB:status_0\" 2 1 1 2
+set_location "\PWM_4:PWMUDB:status_1\" 3 1 0 0
+set_location "\PWM_4:PWMUDB:up_cnt\" 2 1 0 1
+set_location "Net_692" 2 1 1 0

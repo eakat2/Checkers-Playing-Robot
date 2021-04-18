@@ -1,0 +1,6 @@
+C:\Users\Elijah\Documents\Checkers-Playing-Robot\Game Piece Movement System\Game Piece Movement System.cydsn\Game Piece Movement System.cyprj|bca008d5-6069-4780-a472-8779643b0e78
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|756c4e3e-18c6-4132-814a-a0824c024c99
+C:\Users\Elijah\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|4d948a1d-f575-418a-8af1-aef90260c236
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9a640e22-0f2d-4ccc-a29d-48fc5dc5e72a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f43dfce5-657f-42cc-9f30-d94eb4bf9865
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8307a7c7-a8bf-41d2-b8c8-bb3b4094a0d6

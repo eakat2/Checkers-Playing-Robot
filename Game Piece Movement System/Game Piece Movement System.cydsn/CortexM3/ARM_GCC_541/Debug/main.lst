@@ -1,0 +1,1970 @@
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.initalize,"ax",%progbits
+  20              		.align	2
+  21              		.global	initalize
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	initalize, %function
+  25              	initalize:
+  26              	.LFB65:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include "math.h"
+  15:main.c        **** 
+  16:main.c        **** #define PI 3.14159265
+  17:main.c        **** 
+  18:main.c        **** void initalize();
+  19:main.c        **** void setServo_1(float degrees);
+  20:main.c        **** void setServo_2(float degrees);
+  21:main.c        **** void setServo_3(float degrees);
+  22:main.c        **** void setServo_4(float degrees);
+  23:main.c        **** float * inverse_Kinematics(float *coord);
+  24:main.c        **** 
+  25:main.c        **** int main(void)
+  26:main.c        **** {
+  27:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  28:main.c        **** 
+  29:main.c        ****     initalize();
+  30:main.c        ****     
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 2
+
+
+  31:main.c        ****     float coords[3] = {10, 0, 5};
+  32:main.c        ****     float *angles;
+  33:main.c        ****     
+  34:main.c        ****     angles = inverse_Kinematics(coords);
+  35:main.c        ****     
+  36:main.c        ****     setServo_1(angles[0]);
+  37:main.c        ****     setServo_2(angles[1]);
+  38:main.c        ****     setServo_3(angles[2]);
+  39:main.c        ****     setServo_4(angles[3]);
+  40:main.c        ****     
+  41:main.c        ****     for(;;)
+  42:main.c        ****     {
+  43:main.c        ****         /* Place your application code here. */
+  44:main.c        ****         
+  45:main.c        ****     }
+  46:main.c        **** }
+  47:main.c        **** 
+  48:main.c        **** void initalize() {
+  28              		.loc 1 48 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  49:main.c        ****     PWM_1_Start();
+  36              		.loc 1 49 0
+  37 0002 FFF7FEFF 		bl	PWM_1_Start
+  38              	.LVL0:
+  50:main.c        ****     PWM_2_Start();
+  39              		.loc 1 50 0
+  40 0006 FFF7FEFF 		bl	PWM_2_Start
+  41              	.LVL1:
+  51:main.c        ****     PWM_3_Start();
+  42              		.loc 1 51 0
+  43 000a FFF7FEFF 		bl	PWM_3_Start
+  44              	.LVL2:
+  52:main.c        ****     PWM_4_Start();
+  45              		.loc 1 52 0
+  46 000e FFF7FEFF 		bl	PWM_4_Start
+  47              	.LVL3:
+  48 0012 08BD     		pop	{r3, pc}
+  49              		.cfi_endproc
+  50              	.LFE65:
+  51              		.size	initalize, .-initalize
+  52              		.global	__aeabi_f2d
+  53              		.global	__aeabi_d2f
+  54              		.global	__aeabi_fmul
+  55              		.global	__aeabi_fadd
+  56              		.global	__aeabi_fsub
+  57              		.global	__aeabi_fdiv
+  58              		.global	__aeabi_dmul
+  59              		.global	__aeabi_dadd
+  60              		.global	__aeabi_dsub
+  61              		.section	.text.inverse_Kinematics,"ax",%progbits
+  62              		.align	2
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 3
+
+
+  63              		.global	inverse_Kinematics
+  64              		.thumb
+  65              		.thumb_func
+  66              		.type	inverse_Kinematics, %function
+  67              	inverse_Kinematics:
+  68              	.LFB66:
+  53:main.c        **** }
+  54:main.c        **** 
+  55:main.c        **** 
+  56:main.c        **** float *inverse_Kinematics(float *coord) {
+  69              		.loc 1 56 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              	.LVL4:
+  74 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  75              		.cfi_def_cfa_offset 32
+  76              		.cfi_offset 4, -32
+  77              		.cfi_offset 5, -28
+  78              		.cfi_offset 6, -24
+  79              		.cfi_offset 7, -20
+  80              		.cfi_offset 8, -16
+  81              		.cfi_offset 9, -12
+  82              		.cfi_offset 10, -8
+  83              		.cfi_offset 14, -4
+  57:main.c        ****     static float angles[4];
+  58:main.c        ****     
+  59:main.c        ****     // Get Coordinates
+  60:main.c        ****     float x = coord[0];
+  84              		.loc 1 60 0
+  85 0004 0568     		ldr	r5, [r0]	@ float
+  86              	.LVL5:
+  61:main.c        ****     float y = coord[1];
+  87              		.loc 1 61 0
+  88 0006 4468     		ldr	r4, [r0, #4]	@ float
+  89              	.LVL6:
+  62:main.c        ****     float z = coord[2];
+  90              		.loc 1 62 0
+  91 0008 8668     		ldr	r6, [r0, #8]	@ float
+  92              	.LVL7:
+  63:main.c        ****     
+  64:main.c        ****     // Define Robotic Arm Dimensions
+  65:main.c        ****     float L1 = 9.626;
+  66:main.c        ****     float L2 = 23.5;
+  67:main.c        ****     float L3 = 18.475;
+  68:main.c        ****     float L4 = 9;
+  69:main.c        ****     float phi = PI/2;
+  70:main.c        ****     
+  71:main.c        ****     // Theta 1 
+  72:main.c        ****     angles[0] = atan2(y,x);
+  93              		.loc 1 72 0
+  94 000a 2846     		mov	r0, r5
+  95              	.LVL8:
+  96 000c FFF7FEFF 		bl	__aeabi_f2d
+  97              	.LVL9:
+  98 0010 8046     		mov	r8, r0
+  99 0012 8946     		mov	r9, r1
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 4
+
+
+ 100 0014 2046     		mov	r0, r4
+ 101 0016 FFF7FEFF 		bl	__aeabi_f2d
+ 102              	.LVL10:
+ 103 001a 4246     		mov	r2, r8
+ 104 001c 4B46     		mov	r3, r9
+ 105 001e FFF7FEFF 		bl	atan2
+ 106              	.LVL11:
+ 107 0022 DFF838A1 		ldr	r10, .L5+36
+ 108 0026 FFF7FEFF 		bl	__aeabi_d2f
+ 109              	.LVL12:
+ 110 002a CAF80000 		str	r0, [r10]	@ float
+  73:main.c        ****     
+  74:main.c        ****     // Theta 3
+  75:main.c        ****     float r = sqrt(x*x+y*y);
+ 111              		.loc 1 75 0
+ 112 002e 2946     		mov	r1, r5
+ 113 0030 2846     		mov	r0, r5
+ 114 0032 FFF7FEFF 		bl	__aeabi_fmul
+ 115              	.LVL13:
+ 116 0036 0546     		mov	r5, r0
+ 117              	.LVL14:
+ 118 0038 2146     		mov	r1, r4
+ 119 003a 2046     		mov	r0, r4
+ 120 003c FFF7FEFF 		bl	__aeabi_fmul
+ 121              	.LVL15:
+ 122 0040 0146     		mov	r1, r0
+ 123 0042 2846     		mov	r0, r5
+ 124 0044 FFF7FEFF 		bl	__aeabi_fadd
+ 125              	.LVL16:
+ 126 0048 0446     		mov	r4, r0
+ 127              	.LVL17:
+ 128 004a 2046     		mov	r0, r4
+ 129 004c FFF7FEFF 		bl	__aeabi_f2d
+ 130              	.LVL18:
+ 131 0050 FFF7FEFF 		bl	sqrt
+ 132              	.LVL19:
+ 133 0054 FFF7FEFF 		bl	__aeabi_d2f
+ 134              	.LVL20:
+ 135 0058 0546     		mov	r5, r0
+ 136              	.LVL21:
+  76:main.c        ****     float Z = z + L4 - L1;
+ 137              		.loc 1 76 0
+ 138 005a 3949     		ldr	r1, .L5+8
+ 139 005c 3046     		mov	r0, r6
+ 140              	.LVL22:
+ 141 005e FFF7FEFF 		bl	__aeabi_fadd
+ 142              	.LVL23:
+ 143 0062 3849     		ldr	r1, .L5+12
+ 144 0064 FFF7FEFF 		bl	__aeabi_fsub
+ 145              	.LVL24:
+ 146 0068 0446     		mov	r4, r0
+ 147              	.LVL25:
+  77:main.c        ****     angles[2] = acos((r*r+Z*Z - L2*L2 - L3*L3) / (2*L2*L3));
+ 148              		.loc 1 77 0
+ 149 006a 2946     		mov	r1, r5
+ 150 006c 2846     		mov	r0, r5
+ 151              	.LVL26:
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 5
+
+
+ 152 006e FFF7FEFF 		bl	__aeabi_fmul
+ 153              	.LVL27:
+ 154 0072 0646     		mov	r6, r0
+ 155              	.LVL28:
+ 156 0074 2146     		mov	r1, r4
+ 157 0076 2046     		mov	r0, r4
+ 158 0078 FFF7FEFF 		bl	__aeabi_fmul
+ 159              	.LVL29:
+ 160 007c 0146     		mov	r1, r0
+ 161 007e 3046     		mov	r0, r6
+ 162 0080 FFF7FEFF 		bl	__aeabi_fadd
+ 163              	.LVL30:
+ 164 0084 3049     		ldr	r1, .L5+16
+ 165 0086 FFF7FEFF 		bl	__aeabi_fsub
+ 166              	.LVL31:
+ 167 008a 3049     		ldr	r1, .L5+20
+ 168 008c FFF7FEFF 		bl	__aeabi_fsub
+ 169              	.LVL32:
+ 170 0090 2F49     		ldr	r1, .L5+24
+ 171 0092 FFF7FEFF 		bl	__aeabi_fdiv
+ 172              	.LVL33:
+ 173 0096 FFF7FEFF 		bl	__aeabi_f2d
+ 174              	.LVL34:
+ 175 009a FFF7FEFF 		bl	acos
+ 176              	.LVL35:
+ 177 009e FFF7FEFF 		bl	__aeabi_d2f
+ 178              	.LVL36:
+ 179 00a2 CAF80800 		str	r0, [r10, #8]	@ float
+  78:main.c        **** 
+  79:main.c        ****     // Theta 2
+  80:main.c        ****     angles[1] = atan2(Z,r) - atan2((L3*sin(angles[2])),(L2+L3*cos(angles[2])));
+ 180              		.loc 1 80 0
+ 181 00a6 2846     		mov	r0, r5
+ 182 00a8 FFF7FEFF 		bl	__aeabi_f2d
+ 183              	.LVL37:
+ 184 00ac 0646     		mov	r6, r0
+ 185 00ae 0F46     		mov	r7, r1
+ 186 00b0 2046     		mov	r0, r4
+ 187 00b2 FFF7FEFF 		bl	__aeabi_f2d
+ 188              	.LVL38:
+ 189 00b6 3246     		mov	r2, r6
+ 190 00b8 3B46     		mov	r3, r7
+ 191 00ba FFF7FEFF 		bl	atan2
+ 192              	.LVL39:
+ 193 00be 0446     		mov	r4, r0
+ 194              	.LVL40:
+ 195 00c0 0D46     		mov	r5, r1
+ 196              	.LVL41:
+ 197 00c2 DAF80800 		ldr	r0, [r10, #8]	@ float
+ 198 00c6 FFF7FEFF 		bl	__aeabi_f2d
+ 199              	.LVL42:
+ 200 00ca 8046     		mov	r8, r0
+ 201 00cc 8946     		mov	r9, r1
+ 202 00ce FFF7FEFF 		bl	sin
+ 203              	.LVL43:
+ 204 00d2 0646     		mov	r6, r0
+ 205 00d4 0F46     		mov	r7, r1
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 6
+
+
+ 206 00d6 4046     		mov	r0, r8
+ 207 00d8 4946     		mov	r1, r9
+ 208 00da FFF7FEFF 		bl	cos
+ 209              	.LVL44:
+ 210 00de 16A3     		adr	r3, .L5
+ 211 00e0 D3E90023 		ldrd	r2, [r3]
+ 212 00e4 FFF7FEFF 		bl	__aeabi_dmul
+ 213              	.LVL45:
+ 214 00e8 0022     		movs	r2, #0
+ 215 00ea 1A4B     		ldr	r3, .L5+28
+ 216 00ec FFF7FEFF 		bl	__aeabi_dadd
+ 217              	.LVL46:
+ 218 00f0 8046     		mov	r8, r0
+ 219 00f2 8946     		mov	r9, r1
+ 220 00f4 10A3     		adr	r3, .L5
+ 221 00f6 D3E90023 		ldrd	r2, [r3]
+ 222 00fa 3046     		mov	r0, r6
+ 223 00fc 3946     		mov	r1, r7
+ 224 00fe FFF7FEFF 		bl	__aeabi_dmul
+ 225              	.LVL47:
+ 226 0102 4246     		mov	r2, r8
+ 227 0104 4B46     		mov	r3, r9
+ 228 0106 FFF7FEFF 		bl	atan2
+ 229              	.LVL48:
+ 230 010a 0246     		mov	r2, r0
+ 231 010c 0B46     		mov	r3, r1
+ 232 010e 2046     		mov	r0, r4
+ 233 0110 2946     		mov	r1, r5
+ 234 0112 FFF7FEFF 		bl	__aeabi_dsub
+ 235              	.LVL49:
+ 236 0116 FFF7FEFF 		bl	__aeabi_d2f
+ 237              	.LVL50:
+ 238 011a 0146     		mov	r1, r0
+ 239 011c CAF80400 		str	r0, [r10, #4]	@ float
+  81:main.c        ****     
+  82:main.c        ****     // Theta 4
+  83:main.c        ****     angles[3] = phi - angles[1] - angles[3];
+ 240              		.loc 1 83 0
+ 241 0120 0D48     		ldr	r0, .L5+32
+ 242 0122 FFF7FEFF 		bl	__aeabi_fsub
+ 243              	.LVL51:
+ 244 0126 DAF80C10 		ldr	r1, [r10, #12]	@ float
+ 245 012a FFF7FEFF 		bl	__aeabi_fsub
+ 246              	.LVL52:
+ 247 012e CAF80C00 		str	r0, [r10, #12]	@ float
+  84:main.c        **** 
+  85:main.c        ****     return angles;
+  86:main.c        **** }
+ 248              		.loc 1 86 0
+ 249 0132 5046     		mov	r0, r10
+ 250 0134 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 251              	.L6:
+ 252              		.align	3
+ 253              	.L5:
+ 254 0138 000000A0 		.word	-1610612736
+ 255 013c 99793240 		.word	1077049753
+ 256 0140 00001041 		.word	1091567616
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 7
+
+
+ 257 0144 19041A41 		.word	1092224025
+ 258 0148 00100A44 		.word	1141510144
+ 259 014c AFA9AA43 		.word	1135258031
+ 260 0150 CD145944 		.word	1146688717
+ 261 0154 00803740 		.word	1077379072
+ 262 0158 DB0FC93F 		.word	1070141403
+ 263 015c 00000000 		.word	.LANCHOR0
+ 264              		.cfi_endproc
+ 265              	.LFE66:
+ 266              		.size	inverse_Kinematics, .-inverse_Kinematics
+ 267              		.global	__aeabi_f2uiz
+ 268              		.section	.text.setServo_1,"ax",%progbits
+ 269              		.align	2
+ 270              		.global	setServo_1
+ 271              		.thumb
+ 272              		.thumb_func
+ 273              		.type	setServo_1, %function
+ 274              	setServo_1:
+ 275              	.LFB67:
+  87:main.c        **** 
+  88:main.c        **** void setServo_1(float degrees) {
+ 276              		.loc 1 88 0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280              	.LVL53:
+ 281 0000 08B5     		push	{r3, lr}
+ 282              		.cfi_def_cfa_offset 8
+ 283              		.cfi_offset 3, -8
+ 284              		.cfi_offset 14, -4
+  89:main.c        ****     unsigned int val;
+  90:main.c        ****     val = degrees/180*2000 + 2000;
+ 285              		.loc 1 90 0
+ 286 0002 0749     		ldr	r1, .L9
+ 287 0004 FFF7FEFF 		bl	__aeabi_fdiv
+ 288              	.LVL54:
+ 289 0008 0649     		ldr	r1, .L9+4
+ 290 000a FFF7FEFF 		bl	__aeabi_fmul
+ 291              	.LVL55:
+ 292 000e 0549     		ldr	r1, .L9+4
+ 293 0010 FFF7FEFF 		bl	__aeabi_fadd
+ 294              	.LVL56:
+ 295 0014 FFF7FEFF 		bl	__aeabi_f2uiz
+ 296              	.LVL57:
+  91:main.c        **** 
+  92:main.c        ****     PWM_1_WriteCompare(val);
+ 297              		.loc 1 92 0
+ 298 0018 80B2     		uxth	r0, r0
+ 299              	.LVL58:
+ 300 001a FFF7FEFF 		bl	PWM_1_WriteCompare
+ 301              	.LVL59:
+ 302 001e 08BD     		pop	{r3, pc}
+ 303              	.L10:
+ 304              		.align	2
+ 305              	.L9:
+ 306 0020 00003443 		.word	1127481344
+ 307 0024 0000FA44 		.word	1157234688
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 8
+
+
+ 308              		.cfi_endproc
+ 309              	.LFE67:
+ 310              		.size	setServo_1, .-setServo_1
+ 311              		.section	.text.setServo_2,"ax",%progbits
+ 312              		.align	2
+ 313              		.global	setServo_2
+ 314              		.thumb
+ 315              		.thumb_func
+ 316              		.type	setServo_2, %function
+ 317              	setServo_2:
+ 318              	.LFB68:
+  93:main.c        **** }
+  94:main.c        **** 
+  95:main.c        **** void setServo_2(float degrees) {
+ 319              		.loc 1 95 0
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 0
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 323              	.LVL60:
+ 324 0000 08B5     		push	{r3, lr}
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 3, -8
+ 327              		.cfi_offset 14, -4
+  96:main.c        ****     unsigned int val;
+  97:main.c        ****     val = degrees/180*2000 + 2000;
+ 328              		.loc 1 97 0
+ 329 0002 0749     		ldr	r1, .L13
+ 330 0004 FFF7FEFF 		bl	__aeabi_fdiv
+ 331              	.LVL61:
+ 332 0008 0649     		ldr	r1, .L13+4
+ 333 000a FFF7FEFF 		bl	__aeabi_fmul
+ 334              	.LVL62:
+ 335 000e 0549     		ldr	r1, .L13+4
+ 336 0010 FFF7FEFF 		bl	__aeabi_fadd
+ 337              	.LVL63:
+ 338 0014 FFF7FEFF 		bl	__aeabi_f2uiz
+ 339              	.LVL64:
+  98:main.c        **** 
+  99:main.c        ****     PWM_2_WriteCompare(val);
+ 340              		.loc 1 99 0
+ 341 0018 80B2     		uxth	r0, r0
+ 342              	.LVL65:
+ 343 001a FFF7FEFF 		bl	PWM_2_WriteCompare
+ 344              	.LVL66:
+ 345 001e 08BD     		pop	{r3, pc}
+ 346              	.L14:
+ 347              		.align	2
+ 348              	.L13:
+ 349 0020 00003443 		.word	1127481344
+ 350 0024 0000FA44 		.word	1157234688
+ 351              		.cfi_endproc
+ 352              	.LFE68:
+ 353              		.size	setServo_2, .-setServo_2
+ 354              		.section	.text.setServo_3,"ax",%progbits
+ 355              		.align	2
+ 356              		.global	setServo_3
+ 357              		.thumb
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 9
+
+
+ 358              		.thumb_func
+ 359              		.type	setServo_3, %function
+ 360              	setServo_3:
+ 361              	.LFB69:
+ 100:main.c        **** }
+ 101:main.c        **** 
+ 102:main.c        **** void setServo_3(float degrees) {
+ 362              		.loc 1 102 0
+ 363              		.cfi_startproc
+ 364              		@ args = 0, pretend = 0, frame = 0
+ 365              		@ frame_needed = 0, uses_anonymous_args = 0
+ 366              	.LVL67:
+ 367 0000 08B5     		push	{r3, lr}
+ 368              		.cfi_def_cfa_offset 8
+ 369              		.cfi_offset 3, -8
+ 370              		.cfi_offset 14, -4
+ 103:main.c        ****     unsigned int val;
+ 104:main.c        ****     val = degrees/180*2000 + 2000;
+ 371              		.loc 1 104 0
+ 372 0002 0749     		ldr	r1, .L17
+ 373 0004 FFF7FEFF 		bl	__aeabi_fdiv
+ 374              	.LVL68:
+ 375 0008 0649     		ldr	r1, .L17+4
+ 376 000a FFF7FEFF 		bl	__aeabi_fmul
+ 377              	.LVL69:
+ 378 000e 0549     		ldr	r1, .L17+4
+ 379 0010 FFF7FEFF 		bl	__aeabi_fadd
+ 380              	.LVL70:
+ 381 0014 FFF7FEFF 		bl	__aeabi_f2uiz
+ 382              	.LVL71:
+ 105:main.c        **** 
+ 106:main.c        ****     PWM_3_WriteCompare(val);
+ 383              		.loc 1 106 0
+ 384 0018 80B2     		uxth	r0, r0
+ 385              	.LVL72:
+ 386 001a FFF7FEFF 		bl	PWM_3_WriteCompare
+ 387              	.LVL73:
+ 388 001e 08BD     		pop	{r3, pc}
+ 389              	.L18:
+ 390              		.align	2
+ 391              	.L17:
+ 392 0020 00003443 		.word	1127481344
+ 393 0024 0000FA44 		.word	1157234688
+ 394              		.cfi_endproc
+ 395              	.LFE69:
+ 396              		.size	setServo_3, .-setServo_3
+ 397              		.section	.text.setServo_4,"ax",%progbits
+ 398              		.align	2
+ 399              		.global	setServo_4
+ 400              		.thumb
+ 401              		.thumb_func
+ 402              		.type	setServo_4, %function
+ 403              	setServo_4:
+ 404              	.LFB70:
+ 107:main.c        **** }
+ 108:main.c        **** 
+ 109:main.c        **** void setServo_4(float degrees) {
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 10
+
+
+ 405              		.loc 1 109 0
+ 406              		.cfi_startproc
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409              	.LVL74:
+ 410 0000 08B5     		push	{r3, lr}
+ 411              		.cfi_def_cfa_offset 8
+ 412              		.cfi_offset 3, -8
+ 413              		.cfi_offset 14, -4
+ 110:main.c        ****     unsigned int val;
+ 111:main.c        ****     val = degrees/180*2000 + 2000;
+ 414              		.loc 1 111 0
+ 415 0002 0749     		ldr	r1, .L21
+ 416 0004 FFF7FEFF 		bl	__aeabi_fdiv
+ 417              	.LVL75:
+ 418 0008 0649     		ldr	r1, .L21+4
+ 419 000a FFF7FEFF 		bl	__aeabi_fmul
+ 420              	.LVL76:
+ 421 000e 0549     		ldr	r1, .L21+4
+ 422 0010 FFF7FEFF 		bl	__aeabi_fadd
+ 423              	.LVL77:
+ 424 0014 FFF7FEFF 		bl	__aeabi_f2uiz
+ 425              	.LVL78:
+ 112:main.c        **** 
+ 113:main.c        ****     PWM_4_WriteCompare(val);
+ 426              		.loc 1 113 0
+ 427 0018 80B2     		uxth	r0, r0
+ 428              	.LVL79:
+ 429 001a FFF7FEFF 		bl	PWM_4_WriteCompare
+ 430              	.LVL80:
+ 431 001e 08BD     		pop	{r3, pc}
+ 432              	.L22:
+ 433              		.align	2
+ 434              	.L21:
+ 435 0020 00003443 		.word	1127481344
+ 436 0024 0000FA44 		.word	1157234688
+ 437              		.cfi_endproc
+ 438              	.LFE70:
+ 439              		.size	setServo_4, .-setServo_4
+ 440              		.section	.text.main,"ax",%progbits
+ 441              		.align	2
+ 442              		.global	main
+ 443              		.thumb
+ 444              		.thumb_func
+ 445              		.type	main, %function
+ 446              	main:
+ 447              	.LFB64:
+  26:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 448              		.loc 1 26 0
+ 449              		.cfi_startproc
+ 450              		@ args = 0, pretend = 0, frame = 16
+ 451              		@ frame_needed = 0, uses_anonymous_args = 0
+ 452 0000 10B5     		push	{r4, lr}
+ 453              		.cfi_def_cfa_offset 8
+ 454              		.cfi_offset 4, -8
+ 455              		.cfi_offset 14, -4
+ 456 0002 84B0     		sub	sp, sp, #16
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 11
+
+
+ 457              		.cfi_def_cfa_offset 24
+  27:main.c        **** 
+ 458              		.loc 1 27 0
+ 459              		.syntax unified
+ 460              	@ 27 "main.c" 1
+ 461 0004 62B6     		CPSIE   i
+ 462              	@ 0 "" 2
+  29:main.c        ****     
+ 463              		.loc 1 29 0
+ 464              		.thumb
+ 465              		.syntax unified
+ 466 0006 FFF7FEFF 		bl	initalize
+ 467              	.LVL81:
+  31:main.c        ****     float *angles;
+ 468              		.loc 1 31 0
+ 469 000a 0B4A     		ldr	r2, .L26
+ 470 000c 01AB     		add	r3, sp, #4
+ 471 000e 07CA     		ldmia	r2, {r0, r1, r2}
+ 472 0010 83E80700 		stmia	r3, {r0, r1, r2}
+  34:main.c        ****     
+ 473              		.loc 1 34 0
+ 474 0014 1846     		mov	r0, r3
+ 475 0016 FFF7FEFF 		bl	inverse_Kinematics
+ 476              	.LVL82:
+ 477 001a 0446     		mov	r4, r0
+ 478              	.LVL83:
+  36:main.c        ****     setServo_2(angles[1]);
+ 479              		.loc 1 36 0
+ 480 001c 0068     		ldr	r0, [r0]	@ float
+ 481              	.LVL84:
+ 482 001e FFF7FEFF 		bl	setServo_1
+ 483              	.LVL85:
+  37:main.c        ****     setServo_3(angles[2]);
+ 484              		.loc 1 37 0
+ 485 0022 6068     		ldr	r0, [r4, #4]	@ float
+ 486 0024 FFF7FEFF 		bl	setServo_2
+ 487              	.LVL86:
+  38:main.c        ****     setServo_4(angles[3]);
+ 488              		.loc 1 38 0
+ 489 0028 A068     		ldr	r0, [r4, #8]	@ float
+ 490 002a FFF7FEFF 		bl	setServo_3
+ 491              	.LVL87:
+  39:main.c        ****     
+ 492              		.loc 1 39 0
+ 493 002e E068     		ldr	r0, [r4, #12]	@ float
+ 494 0030 FFF7FEFF 		bl	setServo_4
+ 495              	.LVL88:
+ 496              	.L24:
+ 497 0034 FEE7     		b	.L24
+ 498              	.L27:
+ 499 0036 00BF     		.align	2
+ 500              	.L26:
+ 501 0038 00000000 		.word	.LANCHOR1
+ 502              		.cfi_endproc
+ 503              	.LFE64:
+ 504              		.size	main, .-main
+ 505              		.section	.rodata
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 12
+
+
+ 506              		.align	2
+ 507              		.set	.LANCHOR1,. + 0
+ 508              	.LC0:
+ 509 0000 00002041 		.word	1092616192
+ 510 0004 00000000 		.word	0
+ 511 0008 0000A040 		.word	1084227584
+ 512              		.bss
+ 513              		.align	2
+ 514              		.set	.LANCHOR0,. + 0
+ 515              		.type	angles.7085, %object
+ 516              		.size	angles.7085, 16
+ 517              	angles.7085:
+ 518 0000 00000000 		.space	16
+ 518      00000000 
+ 518      00000000 
+ 518      00000000 
+ 519              		.text
+ 520              	.Letext0:
+ 521              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 522              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 523              		.file 4 "Generated_Source\\PSoC5/PWM_1.h"
+ 524              		.file 5 "Generated_Source\\PSoC5/PWM_2.h"
+ 525              		.file 6 "Generated_Source\\PSoC5/PWM_3.h"
+ 526              		.file 7 "Generated_Source\\PSoC5/PWM_4.h"
+ 527              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 528              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 529              		.section	.debug_info,"",%progbits
+ 530              	.Ldebug_info0:
+ 531 0000 13040000 		.4byte	0x413
+ 532 0004 0400     		.2byte	0x4
+ 533 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 534 000a 04       		.byte	0x4
+ 535 000b 01       		.uleb128 0x1
+ 536 000c 69010000 		.4byte	.LASF35
+ 537 0010 0C       		.byte	0xc
+ 538 0011 2F020000 		.4byte	.LASF36
+ 539 0015 58000000 		.4byte	.LASF37
+ 540 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 541 001d 00000000 		.4byte	0
+ 542 0021 00000000 		.4byte	.Ldebug_line0
+ 543 0025 02       		.uleb128 0x2
+ 544 0026 04       		.byte	0x4
+ 545 0027 04       		.byte	0x4
+ 546 0028 44000000 		.4byte	.LASF0
+ 547 002c 02       		.uleb128 0x2
+ 548 002d 01       		.byte	0x1
+ 549 002e 06       		.byte	0x6
+ 550 002f 9E020000 		.4byte	.LASF1
+ 551 0033 02       		.uleb128 0x2
+ 552 0034 01       		.byte	0x1
+ 553 0035 08       		.byte	0x8
+ 554 0036 4A000000 		.4byte	.LASF2
+ 555 003a 02       		.uleb128 0x2
+ 556 003b 02       		.byte	0x2
+ 557 003c 05       		.byte	0x5
+ 558 003d 3B020000 		.4byte	.LASF3
+ 559 0041 02       		.uleb128 0x2
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 13
+
+
+ 560 0042 02       		.byte	0x2
+ 561 0043 07       		.byte	0x7
+ 562 0044 AA020000 		.4byte	.LASF4
+ 563 0048 03       		.uleb128 0x3
+ 564 0049 06000000 		.4byte	.LASF10
+ 565 004d 02       		.byte	0x2
+ 566 004e 3F       		.byte	0x3f
+ 567 004f 53000000 		.4byte	0x53
+ 568 0053 02       		.uleb128 0x2
+ 569 0054 04       		.byte	0x4
+ 570 0055 05       		.byte	0x5
+ 571 0056 76020000 		.4byte	.LASF5
+ 572 005a 02       		.uleb128 0x2
+ 573 005b 04       		.byte	0x4
+ 574 005c 07       		.byte	0x7
+ 575 005d C5000000 		.4byte	.LASF6
+ 576 0061 02       		.uleb128 0x2
+ 577 0062 08       		.byte	0x8
+ 578 0063 05       		.byte	0x5
+ 579 0064 1B020000 		.4byte	.LASF7
+ 580 0068 02       		.uleb128 0x2
+ 581 0069 08       		.byte	0x8
+ 582 006a 07       		.byte	0x7
+ 583 006b 3C010000 		.4byte	.LASF8
+ 584 006f 04       		.uleb128 0x4
+ 585 0070 04       		.byte	0x4
+ 586 0071 05       		.byte	0x5
+ 587 0072 696E7400 		.ascii	"int\000"
+ 588 0076 02       		.uleb128 0x2
+ 589 0077 04       		.byte	0x4
+ 590 0078 07       		.byte	0x7
+ 591 0079 2F010000 		.4byte	.LASF9
+ 592 007d 03       		.uleb128 0x3
+ 593 007e F7010000 		.4byte	.LASF11
+ 594 0082 03       		.byte	0x3
+ 595 0083 2C       		.byte	0x2c
+ 596 0084 48000000 		.4byte	0x48
+ 597 0088 02       		.uleb128 0x2
+ 598 0089 08       		.byte	0x8
+ 599 008a 04       		.byte	0x4
+ 600 008b F8000000 		.4byte	.LASF12
+ 601 008f 02       		.uleb128 0x2
+ 602 0090 01       		.byte	0x1
+ 603 0091 08       		.byte	0x8
+ 604 0092 36020000 		.4byte	.LASF13
+ 605 0096 02       		.uleb128 0x2
+ 606 0097 08       		.byte	0x8
+ 607 0098 04       		.byte	0x4
+ 608 0099 7F020000 		.4byte	.LASF14
+ 609 009d 02       		.uleb128 0x2
+ 610 009e 04       		.byte	0x4
+ 611 009f 07       		.byte	0x7
+ 612 00a0 FF010000 		.4byte	.LASF15
+ 613 00a4 05       		.uleb128 0x5
+ 614 00a5 5F010000 		.4byte	.LASF38
+ 615 00a9 01       		.byte	0x1
+ 616 00aa 30       		.byte	0x30
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 14
+
+
+ 617 00ab 00000000 		.4byte	.LFB65
+ 618 00af 14000000 		.4byte	.LFE65-.LFB65
+ 619 00b3 01       		.uleb128 0x1
+ 620 00b4 9C       		.byte	0x9c
+ 621 00b5 DE000000 		.4byte	0xde
+ 622 00b9 06       		.uleb128 0x6
+ 623 00ba 06000000 		.4byte	.LVL0
+ 624 00be 87030000 		.4byte	0x387
+ 625 00c2 06       		.uleb128 0x6
+ 626 00c3 0A000000 		.4byte	.LVL1
+ 627 00c7 92030000 		.4byte	0x392
+ 628 00cb 06       		.uleb128 0x6
+ 629 00cc 0E000000 		.4byte	.LVL2
+ 630 00d0 9D030000 		.4byte	0x39d
+ 631 00d4 06       		.uleb128 0x6
+ 632 00d5 12000000 		.4byte	.LVL3
+ 633 00d9 A8030000 		.4byte	0x3a8
+ 634 00dd 00       		.byte	0
+ 635 00de 07       		.uleb128 0x7
+ 636 00df 0B010000 		.4byte	.LASF39
+ 637 00e3 01       		.byte	0x1
+ 638 00e4 38       		.byte	0x38
+ 639 00e5 E4010000 		.4byte	0x1e4
+ 640 00e9 00000000 		.4byte	.LFB66
+ 641 00ed 60010000 		.4byte	.LFE66-.LFB66
+ 642 00f1 01       		.uleb128 0x1
+ 643 00f2 9C       		.byte	0x9c
+ 644 00f3 E4010000 		.4byte	0x1e4
+ 645 00f7 08       		.uleb128 0x8
+ 646 00f8 00000000 		.4byte	.LASF17
+ 647 00fc 01       		.byte	0x1
+ 648 00fd 38       		.byte	0x38
+ 649 00fe E4010000 		.4byte	0x1e4
+ 650 0102 00000000 		.4byte	.LLST0
+ 651 0106 09       		.uleb128 0x9
+ 652 0107 10000000 		.4byte	.LASF16
+ 653 010b 01       		.byte	0x1
+ 654 010c 39       		.byte	0x39
+ 655 010d EA010000 		.4byte	0x1ea
+ 656 0111 05       		.uleb128 0x5
+ 657 0112 03       		.byte	0x3
+ 658 0113 00000000 		.4byte	angles.7085
+ 659 0117 0A       		.uleb128 0xa
+ 660 0118 7800     		.ascii	"x\000"
+ 661 011a 01       		.byte	0x1
+ 662 011b 3C       		.byte	0x3c
+ 663 011c 25000000 		.4byte	0x25
+ 664 0120 21000000 		.4byte	.LLST1
+ 665 0124 0A       		.uleb128 0xa
+ 666 0125 7900     		.ascii	"y\000"
+ 667 0127 01       		.byte	0x1
+ 668 0128 3D       		.byte	0x3d
+ 669 0129 25000000 		.4byte	0x25
+ 670 012d 34000000 		.4byte	.LLST2
+ 671 0131 0A       		.uleb128 0xa
+ 672 0132 7A00     		.ascii	"z\000"
+ 673 0134 01       		.byte	0x1
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 15
+
+
+ 674 0135 3E       		.byte	0x3e
+ 675 0136 25000000 		.4byte	0x25
+ 676 013a 47000000 		.4byte	.LLST3
+ 677 013e 0B       		.uleb128 0xb
+ 678 013f 4C3100   		.ascii	"L1\000"
+ 679 0142 01       		.byte	0x1
+ 680 0143 41       		.byte	0x41
+ 681 0144 25000000 		.4byte	0x25
+ 682 0148 04       		.byte	0x4
+ 683 0149 19041A41 		.4byte	0x411a0419
+ 684 014d 0B       		.uleb128 0xb
+ 685 014e 4C3200   		.ascii	"L2\000"
+ 686 0151 01       		.byte	0x1
+ 687 0152 42       		.byte	0x42
+ 688 0153 25000000 		.4byte	0x25
+ 689 0157 04       		.byte	0x4
+ 690 0158 0000BC41 		.4byte	0x41bc0000
+ 691 015c 0B       		.uleb128 0xb
+ 692 015d 4C3300   		.ascii	"L3\000"
+ 693 0160 01       		.byte	0x1
+ 694 0161 43       		.byte	0x43
+ 695 0162 25000000 		.4byte	0x25
+ 696 0166 04       		.byte	0x4
+ 697 0167 CDCC9341 		.4byte	0x4193cccd
+ 698 016b 0B       		.uleb128 0xb
+ 699 016c 4C3400   		.ascii	"L4\000"
+ 700 016f 01       		.byte	0x1
+ 701 0170 44       		.byte	0x44
+ 702 0171 25000000 		.4byte	0x25
+ 703 0175 04       		.byte	0x4
+ 704 0176 00001041 		.4byte	0x41100000
+ 705 017a 0B       		.uleb128 0xb
+ 706 017b 70686900 		.ascii	"phi\000"
+ 707 017f 01       		.byte	0x1
+ 708 0180 45       		.byte	0x45
+ 709 0181 25000000 		.4byte	0x25
+ 710 0185 04       		.byte	0x4
+ 711 0186 DB0FC93F 		.4byte	0x3fc90fdb
+ 712 018a 0A       		.uleb128 0xa
+ 713 018b 7200     		.ascii	"r\000"
+ 714 018d 01       		.byte	0x1
+ 715 018e 4B       		.byte	0x4b
+ 716 018f 25000000 		.4byte	0x25
+ 717 0193 5A000000 		.4byte	.LLST4
+ 718 0197 0A       		.uleb128 0xa
+ 719 0198 5A00     		.ascii	"Z\000"
+ 720 019a 01       		.byte	0x1
+ 721 019b 4C       		.byte	0x4c
+ 722 019c 25000000 		.4byte	0x25
+ 723 01a0 78000000 		.4byte	.LLST5
+ 724 01a4 06       		.uleb128 0x6
+ 725 01a5 22000000 		.4byte	.LVL11
+ 726 01a9 B3030000 		.4byte	0x3b3
+ 727 01ad 06       		.uleb128 0x6
+ 728 01ae 54000000 		.4byte	.LVL19
+ 729 01b2 BE030000 		.4byte	0x3be
+ 730 01b6 06       		.uleb128 0x6
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 16
+
+
+ 731 01b7 9E000000 		.4byte	.LVL35
+ 732 01bb C9030000 		.4byte	0x3c9
+ 733 01bf 06       		.uleb128 0x6
+ 734 01c0 BE000000 		.4byte	.LVL39
+ 735 01c4 B3030000 		.4byte	0x3b3
+ 736 01c8 06       		.uleb128 0x6
+ 737 01c9 D2000000 		.4byte	.LVL43
+ 738 01cd D4030000 		.4byte	0x3d4
+ 739 01d1 06       		.uleb128 0x6
+ 740 01d2 DE000000 		.4byte	.LVL44
+ 741 01d6 DF030000 		.4byte	0x3df
+ 742 01da 06       		.uleb128 0x6
+ 743 01db 0A010000 		.4byte	.LVL48
+ 744 01df B3030000 		.4byte	0x3b3
+ 745 01e3 00       		.byte	0
+ 746 01e4 0C       		.uleb128 0xc
+ 747 01e5 04       		.byte	0x4
+ 748 01e6 25000000 		.4byte	0x25
+ 749 01ea 0D       		.uleb128 0xd
+ 750 01eb 25000000 		.4byte	0x25
+ 751 01ef FA010000 		.4byte	0x1fa
+ 752 01f3 0E       		.uleb128 0xe
+ 753 01f4 9D000000 		.4byte	0x9d
+ 754 01f8 03       		.byte	0x3
+ 755 01f9 00       		.byte	0
+ 756 01fa 0F       		.uleb128 0xf
+ 757 01fb 6B020000 		.4byte	.LASF19
+ 758 01ff 01       		.byte	0x1
+ 759 0200 58       		.byte	0x58
+ 760 0201 00000000 		.4byte	.LFB67
+ 761 0205 28000000 		.4byte	.LFE67-.LFB67
+ 762 0209 01       		.uleb128 0x1
+ 763 020a 9C       		.byte	0x9c
+ 764 020b 37020000 		.4byte	0x237
+ 765 020f 08       		.uleb128 0x8
+ 766 0210 F0000000 		.4byte	.LASF18
+ 767 0214 01       		.byte	0x1
+ 768 0215 58       		.byte	0x58
+ 769 0216 25000000 		.4byte	0x25
+ 770 021a 96000000 		.4byte	.LLST6
+ 771 021e 0A       		.uleb128 0xa
+ 772 021f 76616C00 		.ascii	"val\000"
+ 773 0223 01       		.byte	0x1
+ 774 0224 59       		.byte	0x59
+ 775 0225 76000000 		.4byte	0x76
+ 776 0229 B9000000 		.4byte	.LLST7
+ 777 022d 06       		.uleb128 0x6
+ 778 022e 1E000000 		.4byte	.LVL59
+ 779 0232 EA030000 		.4byte	0x3ea
+ 780 0236 00       		.byte	0
+ 781 0237 0F       		.uleb128 0xf
+ 782 0238 4A020000 		.4byte	.LASF20
+ 783 023c 01       		.byte	0x1
+ 784 023d 5F       		.byte	0x5f
+ 785 023e 00000000 		.4byte	.LFB68
+ 786 0242 28000000 		.4byte	.LFE68-.LFB68
+ 787 0246 01       		.uleb128 0x1
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 17
+
+
+ 788 0247 9C       		.byte	0x9c
+ 789 0248 74020000 		.4byte	0x274
+ 790 024c 08       		.uleb128 0x8
+ 791 024d F0000000 		.4byte	.LASF18
+ 792 0251 01       		.byte	0x1
+ 793 0252 5F       		.byte	0x5f
+ 794 0253 25000000 		.4byte	0x25
+ 795 0257 CC000000 		.4byte	.LLST8
+ 796 025b 0A       		.uleb128 0xa
+ 797 025c 76616C00 		.ascii	"val\000"
+ 798 0260 01       		.byte	0x1
+ 799 0261 60       		.byte	0x60
+ 800 0262 76000000 		.4byte	0x76
+ 801 0266 EF000000 		.4byte	.LLST9
+ 802 026a 06       		.uleb128 0x6
+ 803 026b 1E000000 		.4byte	.LVL66
+ 804 026f F5030000 		.4byte	0x3f5
+ 805 0273 00       		.byte	0
+ 806 0274 0F       		.uleb128 0xf
+ 807 0275 55020000 		.4byte	.LASF21
+ 808 0279 01       		.byte	0x1
+ 809 027a 66       		.byte	0x66
+ 810 027b 00000000 		.4byte	.LFB69
+ 811 027f 28000000 		.4byte	.LFE69-.LFB69
+ 812 0283 01       		.uleb128 0x1
+ 813 0284 9C       		.byte	0x9c
+ 814 0285 B1020000 		.4byte	0x2b1
+ 815 0289 08       		.uleb128 0x8
+ 816 028a F0000000 		.4byte	.LASF18
+ 817 028e 01       		.byte	0x1
+ 818 028f 66       		.byte	0x66
+ 819 0290 25000000 		.4byte	0x25
+ 820 0294 02010000 		.4byte	.LLST10
+ 821 0298 0A       		.uleb128 0xa
+ 822 0299 76616C00 		.ascii	"val\000"
+ 823 029d 01       		.byte	0x1
+ 824 029e 67       		.byte	0x67
+ 825 029f 76000000 		.4byte	0x76
+ 826 02a3 25010000 		.4byte	.LLST11
+ 827 02a7 06       		.uleb128 0x6
+ 828 02a8 1E000000 		.4byte	.LVL73
+ 829 02ac 00040000 		.4byte	0x400
+ 830 02b0 00       		.byte	0
+ 831 02b1 0F       		.uleb128 0xf
+ 832 02b2 60020000 		.4byte	.LASF22
+ 833 02b6 01       		.byte	0x1
+ 834 02b7 6D       		.byte	0x6d
+ 835 02b8 00000000 		.4byte	.LFB70
+ 836 02bc 28000000 		.4byte	.LFE70-.LFB70
+ 837 02c0 01       		.uleb128 0x1
+ 838 02c1 9C       		.byte	0x9c
+ 839 02c2 EE020000 		.4byte	0x2ee
+ 840 02c6 08       		.uleb128 0x8
+ 841 02c7 F0000000 		.4byte	.LASF18
+ 842 02cb 01       		.byte	0x1
+ 843 02cc 6D       		.byte	0x6d
+ 844 02cd 25000000 		.4byte	0x25
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 18
+
+
+ 845 02d1 38010000 		.4byte	.LLST12
+ 846 02d5 0A       		.uleb128 0xa
+ 847 02d6 76616C00 		.ascii	"val\000"
+ 848 02da 01       		.byte	0x1
+ 849 02db 6E       		.byte	0x6e
+ 850 02dc 76000000 		.4byte	0x76
+ 851 02e0 5B010000 		.4byte	.LLST13
+ 852 02e4 06       		.uleb128 0x6
+ 853 02e5 1E000000 		.4byte	.LVL80
+ 854 02e9 0B040000 		.4byte	0x40b
+ 855 02ed 00       		.byte	0
+ 856 02ee 10       		.uleb128 0x10
+ 857 02ef 1E010000 		.4byte	.LASF40
+ 858 02f3 01       		.byte	0x1
+ 859 02f4 19       		.byte	0x19
+ 860 02f5 6F000000 		.4byte	0x6f
+ 861 02f9 00000000 		.4byte	.LFB64
+ 862 02fd 3C000000 		.4byte	.LFE64-.LFB64
+ 863 0301 01       		.uleb128 0x1
+ 864 0302 9C       		.byte	0x9c
+ 865 0303 66030000 		.4byte	0x366
+ 866 0307 09       		.uleb128 0x9
+ 867 0308 3D000000 		.4byte	.LASF23
+ 868 030c 01       		.byte	0x1
+ 869 030d 1F       		.byte	0x1f
+ 870 030e 66030000 		.4byte	0x366
+ 871 0312 02       		.uleb128 0x2
+ 872 0313 91       		.byte	0x91
+ 873 0314 6C       		.sleb128 -20
+ 874 0315 11       		.uleb128 0x11
+ 875 0316 10000000 		.4byte	.LASF16
+ 876 031a 01       		.byte	0x1
+ 877 031b 20       		.byte	0x20
+ 878 031c E4010000 		.4byte	0x1e4
+ 879 0320 6E010000 		.4byte	.LLST14
+ 880 0324 06       		.uleb128 0x6
+ 881 0325 0A000000 		.4byte	.LVL81
+ 882 0329 A4000000 		.4byte	0xa4
+ 883 032d 12       		.uleb128 0x12
+ 884 032e 1A000000 		.4byte	.LVL82
+ 885 0332 DE000000 		.4byte	0xde
+ 886 0336 41030000 		.4byte	0x341
+ 887 033a 13       		.uleb128 0x13
+ 888 033b 01       		.uleb128 0x1
+ 889 033c 50       		.byte	0x50
+ 890 033d 02       		.uleb128 0x2
+ 891 033e 91       		.byte	0x91
+ 892 033f 6C       		.sleb128 -20
+ 893 0340 00       		.byte	0
+ 894 0341 06       		.uleb128 0x6
+ 895 0342 22000000 		.4byte	.LVL85
+ 896 0346 FA010000 		.4byte	0x1fa
+ 897 034a 06       		.uleb128 0x6
+ 898 034b 28000000 		.4byte	.LVL86
+ 899 034f 37020000 		.4byte	0x237
+ 900 0353 06       		.uleb128 0x6
+ 901 0354 2E000000 		.4byte	.LVL87
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 19
+
+
+ 902 0358 74020000 		.4byte	0x274
+ 903 035c 06       		.uleb128 0x6
+ 904 035d 34000000 		.4byte	.LVL88
+ 905 0361 B1020000 		.4byte	0x2b1
+ 906 0365 00       		.byte	0
+ 907 0366 0D       		.uleb128 0xd
+ 908 0367 25000000 		.4byte	0x25
+ 909 036b 76030000 		.4byte	0x376
+ 910 036f 0E       		.uleb128 0xe
+ 911 0370 9D000000 		.4byte	0x9d
+ 912 0374 02       		.byte	0x2
+ 913 0375 00       		.byte	0
+ 914 0376 14       		.uleb128 0x14
+ 915 0377 E3000000 		.4byte	.LASF41
+ 916 037b 09       		.byte	0x9
+ 917 037c 1207     		.2byte	0x712
+ 918 037e 82030000 		.4byte	0x382
+ 919 0382 15       		.uleb128 0x15
+ 920 0383 7D000000 		.4byte	0x7d
+ 921 0387 16       		.uleb128 0x16
+ 922 0388 D7000000 		.4byte	.LASF24
+ 923 038c D7000000 		.4byte	.LASF24
+ 924 0390 04       		.byte	0x4
+ 925 0391 92       		.byte	0x92
+ 926 0392 16       		.uleb128 0x16
+ 927 0393 FF000000 		.4byte	.LASF25
+ 928 0397 FF000000 		.4byte	.LASF25
+ 929 039b 05       		.byte	0x5
+ 930 039c 92       		.byte	0x92
+ 931 039d 16       		.uleb128 0x16
+ 932 039e 23010000 		.4byte	.LASF26
+ 933 03a2 23010000 		.4byte	.LASF26
+ 934 03a6 06       		.byte	0x6
+ 935 03a7 92       		.byte	0x92
+ 936 03a8 16       		.uleb128 0x16
+ 937 03a9 53010000 		.4byte	.LASF27
+ 938 03ad 53010000 		.4byte	.LASF27
+ 939 03b1 07       		.byte	0x7
+ 940 03b2 92       		.byte	0x92
+ 941 03b3 16       		.uleb128 0x16
+ 942 03b4 29020000 		.4byte	.LASF28
+ 943 03b8 29020000 		.4byte	.LASF28
+ 944 03bc 08       		.byte	0x8
+ 945 03bd 7F       		.byte	0x7f
+ 946 03be 16       		.uleb128 0x16
+ 947 03bf BD020000 		.4byte	.LASF29
+ 948 03c3 BD020000 		.4byte	.LASF29
+ 949 03c7 08       		.byte	0x8
+ 950 03c8 87       		.byte	0x87
+ 951 03c9 16       		.uleb128 0x16
+ 952 03ca 45020000 		.4byte	.LASF30
+ 953 03ce 45020000 		.4byte	.LASF30
+ 954 03d2 08       		.byte	0x8
+ 955 03d3 7D       		.byte	0x7d
+ 956 03d4 17       		.uleb128 0x17
+ 957 03d5 73696E00 		.ascii	"sin\000"
+ 958 03d9 73696E00 		.ascii	"sin\000"
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 20
+
+
+ 959 03dd 08       		.byte	0x8
+ 960 03de 6F       		.byte	0x6f
+ 961 03df 17       		.uleb128 0x17
+ 962 03e0 636F7300 		.ascii	"cos\000"
+ 963 03e4 636F7300 		.ascii	"cos\000"
+ 964 03e8 08       		.byte	0x8
+ 965 03e9 6E       		.byte	0x6e
+ 966 03ea 16       		.uleb128 0x16
+ 967 03eb 08020000 		.4byte	.LASF31
+ 968 03ef 08020000 		.4byte	.LASF31
+ 969 03f3 04       		.byte	0x4
+ 970 03f4 C3       		.byte	0xc3
+ 971 03f5 16       		.uleb128 0x16
+ 972 03f6 17000000 		.4byte	.LASF32
+ 973 03fa 17000000 		.4byte	.LASF32
+ 974 03fe 05       		.byte	0x5
+ 975 03ff C3       		.byte	0xc3
+ 976 0400 16       		.uleb128 0x16
+ 977 0401 8B020000 		.4byte	.LASF33
+ 978 0405 8B020000 		.4byte	.LASF33
+ 979 0409 06       		.byte	0x6
+ 980 040a C3       		.byte	0xc3
+ 981 040b 16       		.uleb128 0x16
+ 982 040c 2A000000 		.4byte	.LASF34
+ 983 0410 2A000000 		.4byte	.LASF34
+ 984 0414 07       		.byte	0x7
+ 985 0415 C3       		.byte	0xc3
+ 986 0416 00       		.byte	0
+ 987              		.section	.debug_abbrev,"",%progbits
+ 988              	.Ldebug_abbrev0:
+ 989 0000 01       		.uleb128 0x1
+ 990 0001 11       		.uleb128 0x11
+ 991 0002 01       		.byte	0x1
+ 992 0003 25       		.uleb128 0x25
+ 993 0004 0E       		.uleb128 0xe
+ 994 0005 13       		.uleb128 0x13
+ 995 0006 0B       		.uleb128 0xb
+ 996 0007 03       		.uleb128 0x3
+ 997 0008 0E       		.uleb128 0xe
+ 998 0009 1B       		.uleb128 0x1b
+ 999 000a 0E       		.uleb128 0xe
+ 1000 000b 55       		.uleb128 0x55
+ 1001 000c 17       		.uleb128 0x17
+ 1002 000d 11       		.uleb128 0x11
+ 1003 000e 01       		.uleb128 0x1
+ 1004 000f 10       		.uleb128 0x10
+ 1005 0010 17       		.uleb128 0x17
+ 1006 0011 00       		.byte	0
+ 1007 0012 00       		.byte	0
+ 1008 0013 02       		.uleb128 0x2
+ 1009 0014 24       		.uleb128 0x24
+ 1010 0015 00       		.byte	0
+ 1011 0016 0B       		.uleb128 0xb
+ 1012 0017 0B       		.uleb128 0xb
+ 1013 0018 3E       		.uleb128 0x3e
+ 1014 0019 0B       		.uleb128 0xb
+ 1015 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 21
+
+
+ 1016 001b 0E       		.uleb128 0xe
+ 1017 001c 00       		.byte	0
+ 1018 001d 00       		.byte	0
+ 1019 001e 03       		.uleb128 0x3
+ 1020 001f 16       		.uleb128 0x16
+ 1021 0020 00       		.byte	0
+ 1022 0021 03       		.uleb128 0x3
+ 1023 0022 0E       		.uleb128 0xe
+ 1024 0023 3A       		.uleb128 0x3a
+ 1025 0024 0B       		.uleb128 0xb
+ 1026 0025 3B       		.uleb128 0x3b
+ 1027 0026 0B       		.uleb128 0xb
+ 1028 0027 49       		.uleb128 0x49
+ 1029 0028 13       		.uleb128 0x13
+ 1030 0029 00       		.byte	0
+ 1031 002a 00       		.byte	0
+ 1032 002b 04       		.uleb128 0x4
+ 1033 002c 24       		.uleb128 0x24
+ 1034 002d 00       		.byte	0
+ 1035 002e 0B       		.uleb128 0xb
+ 1036 002f 0B       		.uleb128 0xb
+ 1037 0030 3E       		.uleb128 0x3e
+ 1038 0031 0B       		.uleb128 0xb
+ 1039 0032 03       		.uleb128 0x3
+ 1040 0033 08       		.uleb128 0x8
+ 1041 0034 00       		.byte	0
+ 1042 0035 00       		.byte	0
+ 1043 0036 05       		.uleb128 0x5
+ 1044 0037 2E       		.uleb128 0x2e
+ 1045 0038 01       		.byte	0x1
+ 1046 0039 3F       		.uleb128 0x3f
+ 1047 003a 19       		.uleb128 0x19
+ 1048 003b 03       		.uleb128 0x3
+ 1049 003c 0E       		.uleb128 0xe
+ 1050 003d 3A       		.uleb128 0x3a
+ 1051 003e 0B       		.uleb128 0xb
+ 1052 003f 3B       		.uleb128 0x3b
+ 1053 0040 0B       		.uleb128 0xb
+ 1054 0041 11       		.uleb128 0x11
+ 1055 0042 01       		.uleb128 0x1
+ 1056 0043 12       		.uleb128 0x12
+ 1057 0044 06       		.uleb128 0x6
+ 1058 0045 40       		.uleb128 0x40
+ 1059 0046 18       		.uleb128 0x18
+ 1060 0047 9742     		.uleb128 0x2117
+ 1061 0049 19       		.uleb128 0x19
+ 1062 004a 01       		.uleb128 0x1
+ 1063 004b 13       		.uleb128 0x13
+ 1064 004c 00       		.byte	0
+ 1065 004d 00       		.byte	0
+ 1066 004e 06       		.uleb128 0x6
+ 1067 004f 898201   		.uleb128 0x4109
+ 1068 0052 00       		.byte	0
+ 1069 0053 11       		.uleb128 0x11
+ 1070 0054 01       		.uleb128 0x1
+ 1071 0055 31       		.uleb128 0x31
+ 1072 0056 13       		.uleb128 0x13
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 22
+
+
+ 1073 0057 00       		.byte	0
+ 1074 0058 00       		.byte	0
+ 1075 0059 07       		.uleb128 0x7
+ 1076 005a 2E       		.uleb128 0x2e
+ 1077 005b 01       		.byte	0x1
+ 1078 005c 3F       		.uleb128 0x3f
+ 1079 005d 19       		.uleb128 0x19
+ 1080 005e 03       		.uleb128 0x3
+ 1081 005f 0E       		.uleb128 0xe
+ 1082 0060 3A       		.uleb128 0x3a
+ 1083 0061 0B       		.uleb128 0xb
+ 1084 0062 3B       		.uleb128 0x3b
+ 1085 0063 0B       		.uleb128 0xb
+ 1086 0064 27       		.uleb128 0x27
+ 1087 0065 19       		.uleb128 0x19
+ 1088 0066 49       		.uleb128 0x49
+ 1089 0067 13       		.uleb128 0x13
+ 1090 0068 11       		.uleb128 0x11
+ 1091 0069 01       		.uleb128 0x1
+ 1092 006a 12       		.uleb128 0x12
+ 1093 006b 06       		.uleb128 0x6
+ 1094 006c 40       		.uleb128 0x40
+ 1095 006d 18       		.uleb128 0x18
+ 1096 006e 9642     		.uleb128 0x2116
+ 1097 0070 19       		.uleb128 0x19
+ 1098 0071 01       		.uleb128 0x1
+ 1099 0072 13       		.uleb128 0x13
+ 1100 0073 00       		.byte	0
+ 1101 0074 00       		.byte	0
+ 1102 0075 08       		.uleb128 0x8
+ 1103 0076 05       		.uleb128 0x5
+ 1104 0077 00       		.byte	0
+ 1105 0078 03       		.uleb128 0x3
+ 1106 0079 0E       		.uleb128 0xe
+ 1107 007a 3A       		.uleb128 0x3a
+ 1108 007b 0B       		.uleb128 0xb
+ 1109 007c 3B       		.uleb128 0x3b
+ 1110 007d 0B       		.uleb128 0xb
+ 1111 007e 49       		.uleb128 0x49
+ 1112 007f 13       		.uleb128 0x13
+ 1113 0080 02       		.uleb128 0x2
+ 1114 0081 17       		.uleb128 0x17
+ 1115 0082 00       		.byte	0
+ 1116 0083 00       		.byte	0
+ 1117 0084 09       		.uleb128 0x9
+ 1118 0085 34       		.uleb128 0x34
+ 1119 0086 00       		.byte	0
+ 1120 0087 03       		.uleb128 0x3
+ 1121 0088 0E       		.uleb128 0xe
+ 1122 0089 3A       		.uleb128 0x3a
+ 1123 008a 0B       		.uleb128 0xb
+ 1124 008b 3B       		.uleb128 0x3b
+ 1125 008c 0B       		.uleb128 0xb
+ 1126 008d 49       		.uleb128 0x49
+ 1127 008e 13       		.uleb128 0x13
+ 1128 008f 02       		.uleb128 0x2
+ 1129 0090 18       		.uleb128 0x18
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 23
+
+
+ 1130 0091 00       		.byte	0
+ 1131 0092 00       		.byte	0
+ 1132 0093 0A       		.uleb128 0xa
+ 1133 0094 34       		.uleb128 0x34
+ 1134 0095 00       		.byte	0
+ 1135 0096 03       		.uleb128 0x3
+ 1136 0097 08       		.uleb128 0x8
+ 1137 0098 3A       		.uleb128 0x3a
+ 1138 0099 0B       		.uleb128 0xb
+ 1139 009a 3B       		.uleb128 0x3b
+ 1140 009b 0B       		.uleb128 0xb
+ 1141 009c 49       		.uleb128 0x49
+ 1142 009d 13       		.uleb128 0x13
+ 1143 009e 02       		.uleb128 0x2
+ 1144 009f 17       		.uleb128 0x17
+ 1145 00a0 00       		.byte	0
+ 1146 00a1 00       		.byte	0
+ 1147 00a2 0B       		.uleb128 0xb
+ 1148 00a3 34       		.uleb128 0x34
+ 1149 00a4 00       		.byte	0
+ 1150 00a5 03       		.uleb128 0x3
+ 1151 00a6 08       		.uleb128 0x8
+ 1152 00a7 3A       		.uleb128 0x3a
+ 1153 00a8 0B       		.uleb128 0xb
+ 1154 00a9 3B       		.uleb128 0x3b
+ 1155 00aa 0B       		.uleb128 0xb
+ 1156 00ab 49       		.uleb128 0x49
+ 1157 00ac 13       		.uleb128 0x13
+ 1158 00ad 1C       		.uleb128 0x1c
+ 1159 00ae 0A       		.uleb128 0xa
+ 1160 00af 00       		.byte	0
+ 1161 00b0 00       		.byte	0
+ 1162 00b1 0C       		.uleb128 0xc
+ 1163 00b2 0F       		.uleb128 0xf
+ 1164 00b3 00       		.byte	0
+ 1165 00b4 0B       		.uleb128 0xb
+ 1166 00b5 0B       		.uleb128 0xb
+ 1167 00b6 49       		.uleb128 0x49
+ 1168 00b7 13       		.uleb128 0x13
+ 1169 00b8 00       		.byte	0
+ 1170 00b9 00       		.byte	0
+ 1171 00ba 0D       		.uleb128 0xd
+ 1172 00bb 01       		.uleb128 0x1
+ 1173 00bc 01       		.byte	0x1
+ 1174 00bd 49       		.uleb128 0x49
+ 1175 00be 13       		.uleb128 0x13
+ 1176 00bf 01       		.uleb128 0x1
+ 1177 00c0 13       		.uleb128 0x13
+ 1178 00c1 00       		.byte	0
+ 1179 00c2 00       		.byte	0
+ 1180 00c3 0E       		.uleb128 0xe
+ 1181 00c4 21       		.uleb128 0x21
+ 1182 00c5 00       		.byte	0
+ 1183 00c6 49       		.uleb128 0x49
+ 1184 00c7 13       		.uleb128 0x13
+ 1185 00c8 2F       		.uleb128 0x2f
+ 1186 00c9 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 24
+
+
+ 1187 00ca 00       		.byte	0
+ 1188 00cb 00       		.byte	0
+ 1189 00cc 0F       		.uleb128 0xf
+ 1190 00cd 2E       		.uleb128 0x2e
+ 1191 00ce 01       		.byte	0x1
+ 1192 00cf 3F       		.uleb128 0x3f
+ 1193 00d0 19       		.uleb128 0x19
+ 1194 00d1 03       		.uleb128 0x3
+ 1195 00d2 0E       		.uleb128 0xe
+ 1196 00d3 3A       		.uleb128 0x3a
+ 1197 00d4 0B       		.uleb128 0xb
+ 1198 00d5 3B       		.uleb128 0x3b
+ 1199 00d6 0B       		.uleb128 0xb
+ 1200 00d7 27       		.uleb128 0x27
+ 1201 00d8 19       		.uleb128 0x19
+ 1202 00d9 11       		.uleb128 0x11
+ 1203 00da 01       		.uleb128 0x1
+ 1204 00db 12       		.uleb128 0x12
+ 1205 00dc 06       		.uleb128 0x6
+ 1206 00dd 40       		.uleb128 0x40
+ 1207 00de 18       		.uleb128 0x18
+ 1208 00df 9642     		.uleb128 0x2116
+ 1209 00e1 19       		.uleb128 0x19
+ 1210 00e2 01       		.uleb128 0x1
+ 1211 00e3 13       		.uleb128 0x13
+ 1212 00e4 00       		.byte	0
+ 1213 00e5 00       		.byte	0
+ 1214 00e6 10       		.uleb128 0x10
+ 1215 00e7 2E       		.uleb128 0x2e
+ 1216 00e8 01       		.byte	0x1
+ 1217 00e9 3F       		.uleb128 0x3f
+ 1218 00ea 19       		.uleb128 0x19
+ 1219 00eb 03       		.uleb128 0x3
+ 1220 00ec 0E       		.uleb128 0xe
+ 1221 00ed 3A       		.uleb128 0x3a
+ 1222 00ee 0B       		.uleb128 0xb
+ 1223 00ef 3B       		.uleb128 0x3b
+ 1224 00f0 0B       		.uleb128 0xb
+ 1225 00f1 27       		.uleb128 0x27
+ 1226 00f2 19       		.uleb128 0x19
+ 1227 00f3 49       		.uleb128 0x49
+ 1228 00f4 13       		.uleb128 0x13
+ 1229 00f5 8701     		.uleb128 0x87
+ 1230 00f7 19       		.uleb128 0x19
+ 1231 00f8 11       		.uleb128 0x11
+ 1232 00f9 01       		.uleb128 0x1
+ 1233 00fa 12       		.uleb128 0x12
+ 1234 00fb 06       		.uleb128 0x6
+ 1235 00fc 40       		.uleb128 0x40
+ 1236 00fd 18       		.uleb128 0x18
+ 1237 00fe 9742     		.uleb128 0x2117
+ 1238 0100 19       		.uleb128 0x19
+ 1239 0101 01       		.uleb128 0x1
+ 1240 0102 13       		.uleb128 0x13
+ 1241 0103 00       		.byte	0
+ 1242 0104 00       		.byte	0
+ 1243 0105 11       		.uleb128 0x11
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 25
+
+
+ 1244 0106 34       		.uleb128 0x34
+ 1245 0107 00       		.byte	0
+ 1246 0108 03       		.uleb128 0x3
+ 1247 0109 0E       		.uleb128 0xe
+ 1248 010a 3A       		.uleb128 0x3a
+ 1249 010b 0B       		.uleb128 0xb
+ 1250 010c 3B       		.uleb128 0x3b
+ 1251 010d 0B       		.uleb128 0xb
+ 1252 010e 49       		.uleb128 0x49
+ 1253 010f 13       		.uleb128 0x13
+ 1254 0110 02       		.uleb128 0x2
+ 1255 0111 17       		.uleb128 0x17
+ 1256 0112 00       		.byte	0
+ 1257 0113 00       		.byte	0
+ 1258 0114 12       		.uleb128 0x12
+ 1259 0115 898201   		.uleb128 0x4109
+ 1260 0118 01       		.byte	0x1
+ 1261 0119 11       		.uleb128 0x11
+ 1262 011a 01       		.uleb128 0x1
+ 1263 011b 31       		.uleb128 0x31
+ 1264 011c 13       		.uleb128 0x13
+ 1265 011d 01       		.uleb128 0x1
+ 1266 011e 13       		.uleb128 0x13
+ 1267 011f 00       		.byte	0
+ 1268 0120 00       		.byte	0
+ 1269 0121 13       		.uleb128 0x13
+ 1270 0122 8A8201   		.uleb128 0x410a
+ 1271 0125 00       		.byte	0
+ 1272 0126 02       		.uleb128 0x2
+ 1273 0127 18       		.uleb128 0x18
+ 1274 0128 9142     		.uleb128 0x2111
+ 1275 012a 18       		.uleb128 0x18
+ 1276 012b 00       		.byte	0
+ 1277 012c 00       		.byte	0
+ 1278 012d 14       		.uleb128 0x14
+ 1279 012e 34       		.uleb128 0x34
+ 1280 012f 00       		.byte	0
+ 1281 0130 03       		.uleb128 0x3
+ 1282 0131 0E       		.uleb128 0xe
+ 1283 0132 3A       		.uleb128 0x3a
+ 1284 0133 0B       		.uleb128 0xb
+ 1285 0134 3B       		.uleb128 0x3b
+ 1286 0135 05       		.uleb128 0x5
+ 1287 0136 49       		.uleb128 0x49
+ 1288 0137 13       		.uleb128 0x13
+ 1289 0138 3F       		.uleb128 0x3f
+ 1290 0139 19       		.uleb128 0x19
+ 1291 013a 3C       		.uleb128 0x3c
+ 1292 013b 19       		.uleb128 0x19
+ 1293 013c 00       		.byte	0
+ 1294 013d 00       		.byte	0
+ 1295 013e 15       		.uleb128 0x15
+ 1296 013f 35       		.uleb128 0x35
+ 1297 0140 00       		.byte	0
+ 1298 0141 49       		.uleb128 0x49
+ 1299 0142 13       		.uleb128 0x13
+ 1300 0143 00       		.byte	0
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 26
+
+
+ 1301 0144 00       		.byte	0
+ 1302 0145 16       		.uleb128 0x16
+ 1303 0146 2E       		.uleb128 0x2e
+ 1304 0147 00       		.byte	0
+ 1305 0148 3F       		.uleb128 0x3f
+ 1306 0149 19       		.uleb128 0x19
+ 1307 014a 3C       		.uleb128 0x3c
+ 1308 014b 19       		.uleb128 0x19
+ 1309 014c 6E       		.uleb128 0x6e
+ 1310 014d 0E       		.uleb128 0xe
+ 1311 014e 03       		.uleb128 0x3
+ 1312 014f 0E       		.uleb128 0xe
+ 1313 0150 3A       		.uleb128 0x3a
+ 1314 0151 0B       		.uleb128 0xb
+ 1315 0152 3B       		.uleb128 0x3b
+ 1316 0153 0B       		.uleb128 0xb
+ 1317 0154 00       		.byte	0
+ 1318 0155 00       		.byte	0
+ 1319 0156 17       		.uleb128 0x17
+ 1320 0157 2E       		.uleb128 0x2e
+ 1321 0158 00       		.byte	0
+ 1322 0159 3F       		.uleb128 0x3f
+ 1323 015a 19       		.uleb128 0x19
+ 1324 015b 3C       		.uleb128 0x3c
+ 1325 015c 19       		.uleb128 0x19
+ 1326 015d 6E       		.uleb128 0x6e
+ 1327 015e 08       		.uleb128 0x8
+ 1328 015f 03       		.uleb128 0x3
+ 1329 0160 08       		.uleb128 0x8
+ 1330 0161 3A       		.uleb128 0x3a
+ 1331 0162 0B       		.uleb128 0xb
+ 1332 0163 3B       		.uleb128 0x3b
+ 1333 0164 0B       		.uleb128 0xb
+ 1334 0165 00       		.byte	0
+ 1335 0166 00       		.byte	0
+ 1336 0167 00       		.byte	0
+ 1337              		.section	.debug_loc,"",%progbits
+ 1338              	.Ldebug_loc0:
+ 1339              	.LLST0:
+ 1340 0000 00000000 		.4byte	.LVL4
+ 1341 0004 0C000000 		.4byte	.LVL8
+ 1342 0008 0100     		.2byte	0x1
+ 1343 000a 50       		.byte	0x50
+ 1344 000b 0C000000 		.4byte	.LVL8
+ 1345 000f 60010000 		.4byte	.LFE66
+ 1346 0013 0400     		.2byte	0x4
+ 1347 0015 F3       		.byte	0xf3
+ 1348 0016 01       		.uleb128 0x1
+ 1349 0017 50       		.byte	0x50
+ 1350 0018 9F       		.byte	0x9f
+ 1351 0019 00000000 		.4byte	0
+ 1352 001d 00000000 		.4byte	0
+ 1353              	.LLST1:
+ 1354 0021 06000000 		.4byte	.LVL5
+ 1355 0025 38000000 		.4byte	.LVL14
+ 1356 0029 0100     		.2byte	0x1
+ 1357 002b 55       		.byte	0x55
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 27
+
+
+ 1358 002c 00000000 		.4byte	0
+ 1359 0030 00000000 		.4byte	0
+ 1360              	.LLST2:
+ 1361 0034 08000000 		.4byte	.LVL6
+ 1362 0038 4A000000 		.4byte	.LVL17
+ 1363 003c 0100     		.2byte	0x1
+ 1364 003e 54       		.byte	0x54
+ 1365 003f 00000000 		.4byte	0
+ 1366 0043 00000000 		.4byte	0
+ 1367              	.LLST3:
+ 1368 0047 0A000000 		.4byte	.LVL7
+ 1369 004b 74000000 		.4byte	.LVL28
+ 1370 004f 0100     		.2byte	0x1
+ 1371 0051 56       		.byte	0x56
+ 1372 0052 00000000 		.4byte	0
+ 1373 0056 00000000 		.4byte	0
+ 1374              	.LLST4:
+ 1375 005a 5A000000 		.4byte	.LVL21
+ 1376 005e 5E000000 		.4byte	.LVL22
+ 1377 0062 0100     		.2byte	0x1
+ 1378 0064 50       		.byte	0x50
+ 1379 0065 5E000000 		.4byte	.LVL22
+ 1380 0069 C2000000 		.4byte	.LVL41
+ 1381 006d 0100     		.2byte	0x1
+ 1382 006f 55       		.byte	0x55
+ 1383 0070 00000000 		.4byte	0
+ 1384 0074 00000000 		.4byte	0
+ 1385              	.LLST5:
+ 1386 0078 6A000000 		.4byte	.LVL25
+ 1387 007c 6E000000 		.4byte	.LVL26
+ 1388 0080 0100     		.2byte	0x1
+ 1389 0082 50       		.byte	0x50
+ 1390 0083 6E000000 		.4byte	.LVL26
+ 1391 0087 C0000000 		.4byte	.LVL40
+ 1392 008b 0100     		.2byte	0x1
+ 1393 008d 54       		.byte	0x54
+ 1394 008e 00000000 		.4byte	0
+ 1395 0092 00000000 		.4byte	0
+ 1396              	.LLST6:
+ 1397 0096 00000000 		.4byte	.LVL53
+ 1398 009a 07000000 		.4byte	.LVL54-1
+ 1399 009e 0100     		.2byte	0x1
+ 1400 00a0 50       		.byte	0x50
+ 1401 00a1 07000000 		.4byte	.LVL54-1
+ 1402 00a5 28000000 		.4byte	.LFE67
+ 1403 00a9 0600     		.2byte	0x6
+ 1404 00ab F3       		.byte	0xf3
+ 1405 00ac 03       		.uleb128 0x3
+ 1406 00ad F5       		.byte	0xf5
+ 1407 00ae 00       		.uleb128 0
+ 1408 00af 25       		.uleb128 0x25
+ 1409 00b0 9F       		.byte	0x9f
+ 1410 00b1 00000000 		.4byte	0
+ 1411 00b5 00000000 		.4byte	0
+ 1412              	.LLST7:
+ 1413 00b9 18000000 		.4byte	.LVL57
+ 1414 00bd 1A000000 		.4byte	.LVL58
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 28
+
+
+ 1415 00c1 0100     		.2byte	0x1
+ 1416 00c3 50       		.byte	0x50
+ 1417 00c4 00000000 		.4byte	0
+ 1418 00c8 00000000 		.4byte	0
+ 1419              	.LLST8:
+ 1420 00cc 00000000 		.4byte	.LVL60
+ 1421 00d0 07000000 		.4byte	.LVL61-1
+ 1422 00d4 0100     		.2byte	0x1
+ 1423 00d6 50       		.byte	0x50
+ 1424 00d7 07000000 		.4byte	.LVL61-1
+ 1425 00db 28000000 		.4byte	.LFE68
+ 1426 00df 0600     		.2byte	0x6
+ 1427 00e1 F3       		.byte	0xf3
+ 1428 00e2 03       		.uleb128 0x3
+ 1429 00e3 F5       		.byte	0xf5
+ 1430 00e4 00       		.uleb128 0
+ 1431 00e5 25       		.uleb128 0x25
+ 1432 00e6 9F       		.byte	0x9f
+ 1433 00e7 00000000 		.4byte	0
+ 1434 00eb 00000000 		.4byte	0
+ 1435              	.LLST9:
+ 1436 00ef 18000000 		.4byte	.LVL64
+ 1437 00f3 1A000000 		.4byte	.LVL65
+ 1438 00f7 0100     		.2byte	0x1
+ 1439 00f9 50       		.byte	0x50
+ 1440 00fa 00000000 		.4byte	0
+ 1441 00fe 00000000 		.4byte	0
+ 1442              	.LLST10:
+ 1443 0102 00000000 		.4byte	.LVL67
+ 1444 0106 07000000 		.4byte	.LVL68-1
+ 1445 010a 0100     		.2byte	0x1
+ 1446 010c 50       		.byte	0x50
+ 1447 010d 07000000 		.4byte	.LVL68-1
+ 1448 0111 28000000 		.4byte	.LFE69
+ 1449 0115 0600     		.2byte	0x6
+ 1450 0117 F3       		.byte	0xf3
+ 1451 0118 03       		.uleb128 0x3
+ 1452 0119 F5       		.byte	0xf5
+ 1453 011a 00       		.uleb128 0
+ 1454 011b 25       		.uleb128 0x25
+ 1455 011c 9F       		.byte	0x9f
+ 1456 011d 00000000 		.4byte	0
+ 1457 0121 00000000 		.4byte	0
+ 1458              	.LLST11:
+ 1459 0125 18000000 		.4byte	.LVL71
+ 1460 0129 1A000000 		.4byte	.LVL72
+ 1461 012d 0100     		.2byte	0x1
+ 1462 012f 50       		.byte	0x50
+ 1463 0130 00000000 		.4byte	0
+ 1464 0134 00000000 		.4byte	0
+ 1465              	.LLST12:
+ 1466 0138 00000000 		.4byte	.LVL74
+ 1467 013c 07000000 		.4byte	.LVL75-1
+ 1468 0140 0100     		.2byte	0x1
+ 1469 0142 50       		.byte	0x50
+ 1470 0143 07000000 		.4byte	.LVL75-1
+ 1471 0147 28000000 		.4byte	.LFE70
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 29
+
+
+ 1472 014b 0600     		.2byte	0x6
+ 1473 014d F3       		.byte	0xf3
+ 1474 014e 03       		.uleb128 0x3
+ 1475 014f F5       		.byte	0xf5
+ 1476 0150 00       		.uleb128 0
+ 1477 0151 25       		.uleb128 0x25
+ 1478 0152 9F       		.byte	0x9f
+ 1479 0153 00000000 		.4byte	0
+ 1480 0157 00000000 		.4byte	0
+ 1481              	.LLST13:
+ 1482 015b 18000000 		.4byte	.LVL78
+ 1483 015f 1A000000 		.4byte	.LVL79
+ 1484 0163 0100     		.2byte	0x1
+ 1485 0165 50       		.byte	0x50
+ 1486 0166 00000000 		.4byte	0
+ 1487 016a 00000000 		.4byte	0
+ 1488              	.LLST14:
+ 1489 016e 1C000000 		.4byte	.LVL83
+ 1490 0172 1E000000 		.4byte	.LVL84
+ 1491 0176 0100     		.2byte	0x1
+ 1492 0178 50       		.byte	0x50
+ 1493 0179 1E000000 		.4byte	.LVL84
+ 1494 017d 3C000000 		.4byte	.LFE64
+ 1495 0181 0100     		.2byte	0x1
+ 1496 0183 54       		.byte	0x54
+ 1497 0184 00000000 		.4byte	0
+ 1498 0188 00000000 		.4byte	0
+ 1499              		.section	.debug_aranges,"",%progbits
+ 1500 0000 4C000000 		.4byte	0x4c
+ 1501 0004 0200     		.2byte	0x2
+ 1502 0006 00000000 		.4byte	.Ldebug_info0
+ 1503 000a 04       		.byte	0x4
+ 1504 000b 00       		.byte	0
+ 1505 000c 0000     		.2byte	0
+ 1506 000e 0000     		.2byte	0
+ 1507 0010 00000000 		.4byte	.LFB65
+ 1508 0014 14000000 		.4byte	.LFE65-.LFB65
+ 1509 0018 00000000 		.4byte	.LFB66
+ 1510 001c 60010000 		.4byte	.LFE66-.LFB66
+ 1511 0020 00000000 		.4byte	.LFB67
+ 1512 0024 28000000 		.4byte	.LFE67-.LFB67
+ 1513 0028 00000000 		.4byte	.LFB68
+ 1514 002c 28000000 		.4byte	.LFE68-.LFB68
+ 1515 0030 00000000 		.4byte	.LFB69
+ 1516 0034 28000000 		.4byte	.LFE69-.LFB69
+ 1517 0038 00000000 		.4byte	.LFB70
+ 1518 003c 28000000 		.4byte	.LFE70-.LFB70
+ 1519 0040 00000000 		.4byte	.LFB64
+ 1520 0044 3C000000 		.4byte	.LFE64-.LFB64
+ 1521 0048 00000000 		.4byte	0
+ 1522 004c 00000000 		.4byte	0
+ 1523              		.section	.debug_ranges,"",%progbits
+ 1524              	.Ldebug_ranges0:
+ 1525 0000 00000000 		.4byte	.LFB65
+ 1526 0004 14000000 		.4byte	.LFE65
+ 1527 0008 00000000 		.4byte	.LFB66
+ 1528 000c 60010000 		.4byte	.LFE66
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 30
+
+
+ 1529 0010 00000000 		.4byte	.LFB67
+ 1530 0014 28000000 		.4byte	.LFE67
+ 1531 0018 00000000 		.4byte	.LFB68
+ 1532 001c 28000000 		.4byte	.LFE68
+ 1533 0020 00000000 		.4byte	.LFB69
+ 1534 0024 28000000 		.4byte	.LFE69
+ 1535 0028 00000000 		.4byte	.LFB70
+ 1536 002c 28000000 		.4byte	.LFE70
+ 1537 0030 00000000 		.4byte	.LFB64
+ 1538 0034 3C000000 		.4byte	.LFE64
+ 1539 0038 00000000 		.4byte	0
+ 1540 003c 00000000 		.4byte	0
+ 1541              		.section	.debug_line,"",%progbits
+ 1542              	.Ldebug_line0:
+ 1543 0000 75020000 		.section	.debug_str,"MS",%progbits,1
+ 1543      0200DD01 
+ 1543      00000201 
+ 1543      FB0E0D00 
+ 1543      01010101 
+ 1544              	.LASF17:
+ 1545 0000 636F6F72 		.ascii	"coord\000"
+ 1545      6400
+ 1546              	.LASF10:
+ 1547 0006 5F5F696E 		.ascii	"__int32_t\000"
+ 1547      7433325F 
+ 1547      7400
+ 1548              	.LASF16:
+ 1549 0010 616E676C 		.ascii	"angles\000"
+ 1549      657300
+ 1550              	.LASF32:
+ 1551 0017 50574D5F 		.ascii	"PWM_2_WriteCompare\000"
+ 1551      325F5772 
+ 1551      69746543 
+ 1551      6F6D7061 
+ 1551      726500
+ 1552              	.LASF34:
+ 1553 002a 50574D5F 		.ascii	"PWM_4_WriteCompare\000"
+ 1553      345F5772 
+ 1553      69746543 
+ 1553      6F6D7061 
+ 1553      726500
+ 1554              	.LASF23:
+ 1555 003d 636F6F72 		.ascii	"coords\000"
+ 1555      647300
+ 1556              	.LASF0:
+ 1557 0044 666C6F61 		.ascii	"float\000"
+ 1557      7400
+ 1558              	.LASF2:
+ 1559 004a 756E7369 		.ascii	"unsigned char\000"
+ 1559      676E6564 
+ 1559      20636861 
+ 1559      7200
+ 1560              	.LASF37:
+ 1561 0058 433A5C55 		.ascii	"C:\\Users\\Elijah\\Documents\\Checkers-Playing-Robo"
+ 1561      73657273 
+ 1561      5C456C69 
+ 1561      6A61685C 
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 31
+
+
+ 1561      446F6375 
+ 1562 0087 745C4761 		.ascii	"t\\Game Piece Movement System\\Game Piece Movement "
+ 1562      6D652050 
+ 1562      69656365 
+ 1562      204D6F76 
+ 1562      656D656E 
+ 1563 00b8 53797374 		.ascii	"System.cydsn\000"
+ 1563      656D2E63 
+ 1563      7964736E 
+ 1563      00
+ 1564              	.LASF6:
+ 1565 00c5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1565      20756E73 
+ 1565      69676E65 
+ 1565      6420696E 
+ 1565      7400
+ 1566              	.LASF24:
+ 1567 00d7 50574D5F 		.ascii	"PWM_1_Start\000"
+ 1567      315F5374 
+ 1567      61727400 
+ 1568              	.LASF41:
+ 1569 00e3 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1569      52784275 
+ 1569      66666572 
+ 1569      00
+ 1570              	.LASF18:
+ 1571 00f0 64656772 		.ascii	"degrees\000"
+ 1571      65657300 
+ 1572              	.LASF12:
+ 1573 00f8 646F7562 		.ascii	"double\000"
+ 1573      6C6500
+ 1574              	.LASF25:
+ 1575 00ff 50574D5F 		.ascii	"PWM_2_Start\000"
+ 1575      325F5374 
+ 1575      61727400 
+ 1576              	.LASF39:
+ 1577 010b 696E7665 		.ascii	"inverse_Kinematics\000"
+ 1577      7273655F 
+ 1577      4B696E65 
+ 1577      6D617469 
+ 1577      637300
+ 1578              	.LASF40:
+ 1579 011e 6D61696E 		.ascii	"main\000"
+ 1579      00
+ 1580              	.LASF26:
+ 1581 0123 50574D5F 		.ascii	"PWM_3_Start\000"
+ 1581      335F5374 
+ 1581      61727400 
+ 1582              	.LASF9:
+ 1583 012f 756E7369 		.ascii	"unsigned int\000"
+ 1583      676E6564 
+ 1583      20696E74 
+ 1583      00
+ 1584              	.LASF8:
+ 1585 013c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1585      206C6F6E 
+ 1585      6720756E 
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 32
+
+
+ 1585      7369676E 
+ 1585      65642069 
+ 1586              	.LASF27:
+ 1587 0153 50574D5F 		.ascii	"PWM_4_Start\000"
+ 1587      345F5374 
+ 1587      61727400 
+ 1588              	.LASF38:
+ 1589 015f 696E6974 		.ascii	"initalize\000"
+ 1589      616C697A 
+ 1589      6500
+ 1590              	.LASF35:
+ 1591 0169 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1591      43313120 
+ 1591      352E342E 
+ 1591      31203230 
+ 1591      31363036 
+ 1592 019c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1592      20726576 
+ 1592      6973696F 
+ 1592      6E203233 
+ 1592      37373135 
+ 1593 01cf 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1593      66756E63 
+ 1593      74696F6E 
+ 1593      2D736563 
+ 1593      74696F6E 
+ 1594              	.LASF11:
+ 1595 01f7 696E7433 		.ascii	"int32_t\000"
+ 1595      325F7400 
+ 1596              	.LASF15:
+ 1597 01ff 73697A65 		.ascii	"sizetype\000"
+ 1597      74797065 
+ 1597      00
+ 1598              	.LASF31:
+ 1599 0208 50574D5F 		.ascii	"PWM_1_WriteCompare\000"
+ 1599      315F5772 
+ 1599      69746543 
+ 1599      6F6D7061 
+ 1599      726500
+ 1600              	.LASF7:
+ 1601 021b 6C6F6E67 		.ascii	"long long int\000"
+ 1601      206C6F6E 
+ 1601      6720696E 
+ 1601      7400
+ 1602              	.LASF28:
+ 1603 0229 6174616E 		.ascii	"atan2\000"
+ 1603      3200
+ 1604              	.LASF36:
+ 1605 022f 6D61696E 		.ascii	"main.c\000"
+ 1605      2E6300
+ 1606              	.LASF13:
+ 1607 0236 63686172 		.ascii	"char\000"
+ 1607      00
+ 1608              	.LASF3:
+ 1609 023b 73686F72 		.ascii	"short int\000"
+ 1609      7420696E 
+ 1609      7400
+ARM GAS  C:\Users\Elijah\AppData\Local\Temp\ccEbzU6h.s 			page 33
+
+
+ 1610              	.LASF30:
+ 1611 0245 61636F73 		.ascii	"acos\000"
+ 1611      00
+ 1612              	.LASF20:
+ 1613 024a 73657453 		.ascii	"setServo_2\000"
+ 1613      6572766F 
+ 1613      5F3200
+ 1614              	.LASF21:
+ 1615 0255 73657453 		.ascii	"setServo_3\000"
+ 1615      6572766F 
+ 1615      5F3300
+ 1616              	.LASF22:
+ 1617 0260 73657453 		.ascii	"setServo_4\000"
+ 1617      6572766F 
+ 1617      5F3400
+ 1618              	.LASF19:
+ 1619 026b 73657453 		.ascii	"setServo_1\000"
+ 1619      6572766F 
+ 1619      5F3100
+ 1620              	.LASF5:
+ 1621 0276 6C6F6E67 		.ascii	"long int\000"
+ 1621      20696E74 
+ 1621      00
+ 1622              	.LASF14:
+ 1623 027f 6C6F6E67 		.ascii	"long double\000"
+ 1623      20646F75 
+ 1623      626C6500 
+ 1624              	.LASF33:
+ 1625 028b 50574D5F 		.ascii	"PWM_3_WriteCompare\000"
+ 1625      335F5772 
+ 1625      69746543 
+ 1625      6F6D7061 
+ 1625      726500
+ 1626              	.LASF1:
+ 1627 029e 7369676E 		.ascii	"signed char\000"
+ 1627      65642063 
+ 1627      68617200 
+ 1628              	.LASF4:
+ 1629 02aa 73686F72 		.ascii	"short unsigned int\000"
+ 1629      7420756E 
+ 1629      7369676E 
+ 1629      65642069 
+ 1629      6E7400
+ 1630              	.LASF29:
+ 1631 02bd 73717274 		.ascii	"sqrt\000"
+ 1631      00
+ 1632              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

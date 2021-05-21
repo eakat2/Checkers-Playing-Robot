@@ -33,8 +33,8 @@ extern uint8 PWM_4_initVar;
 #define PWM_4_DeadBandMode                   (0u)
 #define PWM_4_KillModeMinTime                (0u)
 #define PWM_4_KillMode                       (0u)
-#define PWM_4_PWMMode                        (3u)
-#define PWM_4_PWMModeIsCenterAligned         (1u)
+#define PWM_4_PWMMode                        (0u)
+#define PWM_4_PWMModeIsCenterAligned         (0u)
 #define PWM_4_DeadBandUsed                   (0u)
 #define PWM_4_DeadBand2_4                    (0u)
 
@@ -226,8 +226,8 @@ void PWM_4_RestoreConfig(void) ;
 /***************************************
 *         Initialization Values
 **************************************/
-#define PWM_4_INIT_PERIOD_VALUE          (19999u)
-#define PWM_4_INIT_COMPARE_VALUE1        (4319u)
+#define PWM_4_INIT_PERIOD_VALUE          (39999u)
+#define PWM_4_INIT_COMPARE_VALUE1        (3000u)
 #define PWM_4_INIT_COMPARE_VALUE2        (63u)
 #define PWM_4_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \
                                                     PWM_4_STATUS_TC_INT_EN_MASK_SHIFT)) | \
@@ -238,7 +238,7 @@ void PWM_4_RestoreConfig(void) ;
                                                     (uint8)((uint8)(0u <<  \
                                                     PWM_4_STATUS_KILL_INT_EN_MASK_SHIFT )))
 #define PWM_4_DEFAULT_COMPARE2_MODE      (uint8)((uint8)1u <<  PWM_4_CTRL_CMPMODE2_SHIFT)
-#define PWM_4_DEFAULT_COMPARE1_MODE      (uint8)((uint8)3u <<  PWM_4_CTRL_CMPMODE1_SHIFT)
+#define PWM_4_DEFAULT_COMPARE1_MODE      (uint8)((uint8)1u <<  PWM_4_CTRL_CMPMODE1_SHIFT)
 #define PWM_4_INIT_DEAD_TIME             (1u)
 
 

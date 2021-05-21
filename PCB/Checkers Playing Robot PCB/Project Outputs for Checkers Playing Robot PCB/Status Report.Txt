@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Checkers Playing Robot PCB.PrjPcb]
+   Generated File[Hall Effect Sensor Panel PCB.TXT]
+   Generated File[Hall Effect Sensor Panel PCB.LDP]
+   Generated File[Hall Effect Sensor Panel PCB.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 8:54:22 AM On 13/04/2021

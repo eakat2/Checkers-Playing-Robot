@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Hall Effect Sensor Panel PCB.PcbDoc   13/04/2021  8:54:22 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Hall Effect Sensor Panel PCB.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             9         PTH        0.00inch (0.00mm)
+T2      20mil (0.5mm)                                             Round             48        PTH        0.00inch (0.00mm)
+T3      26mil (0.65mm)                                            Round             1         PTH        0.00inch (0.00mm)
+T4      28mil (0.701mm)                                           Round             47        PTH        0.00inch (0.00mm)
+T5      30mil (0.759mm)                                           Round             32        PTH        0.00inch (0.00mm)
+T6      35mil (0.899mm)                                           Round             27        PTH        0.00inch (0.00mm)
+T7      39mil (1.001mm)                                           Round             20        PTH        0.00inch (0.00mm)
+T8      158mil (4.001mm)                                          Round             4         PTH        0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              188
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -10,7 +10,7 @@ counter = 0
 
 try:
     while 1:
-        for counter = range(0, 255):
+        for counter in range(0, 255):
             bus.write_byte_data(0x20, 0x12, counter)
             bus.write_byte_data(0x20, 0x13, counter)
             time.sleep(0.5)

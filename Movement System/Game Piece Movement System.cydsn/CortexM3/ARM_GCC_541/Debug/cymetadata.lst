@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
   55 001a 01       		.byte	1
   56 001b 40       		.byte	64
   57 001c 2B       		.byte	43
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 2
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 2
 
 
   58 001d 05       		.byte	5
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  112 0053 40       		.byte	64
  113 0054 08       		.byte	8
  114 0055 41       		.byte	65
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 3
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 3
 
 
  115 0056 01       		.byte	1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  169 008c 89       		.byte	-119
  170 008d 38       		.byte	56
  171 008e 8C       		.byte	-116
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 4
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 4
 
 
  172 008f 47       		.byte	71
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  226 00c5 80       		.byte	-128
  227 00c6 54       		.byte	84
  228 00c7 05       		.byte	5
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 5
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 5
 
 
  229 00c8 58       		.byte	88
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  283 00fe C6       		.byte	-58
  284 00ff 01       		.byte	1
  285 0100 C7       		.byte	-57
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 6
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 6
 
 
  286 0101 02       		.byte	2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  340 0137 08       		.byte	8
  341 0138 0D       		.byte	13
  342 0139 08       		.byte	8
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 7
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 7
 
 
  343 013a 10       		.byte	16
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  397 0170 70       		.byte	112
  398 0171 01       		.byte	1
  399 0172 76       		.byte	118
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 8
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 8
 
 
  400 0173 40       		.byte	64
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  454 01a9 A0       		.byte	-96
  455 01aa 4F       		.byte	79
  456 01ab 04       		.byte	4
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 9
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 9
 
 
  457 01ac 50       		.byte	80
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  511 01e2 B7       		.byte	-73
  512 01e3 01       		.byte	1
  513 01e4 BE       		.byte	-66
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 10
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 10
 
 
  514 01e5 10       		.byte	16
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  568 021b C0       		.byte	-64
  569 021c E8       		.byte	-24
  570 021d C0       		.byte	-64
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 11
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 11
 
 
  571 021e EA       		.byte	-22
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  625 0254 5F       		.byte	95
  626 0255 01       		.byte	1
  627 0256 77       		.byte	119
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 12
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 12
 
 
  628 0257 40       		.byte	64
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  682 028d 04       		.byte	4
  683 028e 50       		.byte	80
  684 028f 18       		.byte	24
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 13
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 13
 
 
  685 0290 58       		.byte	88
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  739 02c6 C5       		.byte	-59
  740 02c7 D1       		.byte	-47
  741 02c8 C6       		.byte	-58
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 14
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 14
 
 
  742 02c9 20       		.byte	32
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  796 02ff 02       		.byte	2
  797 0300 0C       		.byte	12
  798 0301 20       		.byte	32
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 15
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 15
 
 
  799 0302 0F       		.byte	15
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  853 0338 D2       		.byte	-46
  854 0339 24       		.byte	36
  855 033a D6       		.byte	-42
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 16
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 16
 
 
  856 033b 0B       		.byte	11
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  910 0371 12       		.byte	18
  911 0372 83       		.byte	-125
  912 0373 02       		.byte	2
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 17
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 17
 
 
  913 0374 84       		.byte	-124
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  967 03aa B1       		.byte	-79
  968 03ab 01       		.byte	1
  969 03ac B2       		.byte	-78
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 18
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 18
 
 
  970 03ad 70       		.byte	112
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1024 03e3 05       		.byte	5
  1025 03e4 22       		.byte	34
  1026 03e5 0A       		.byte	10
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 19
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 19
 
 
  1027 03e6 29       		.byte	41
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1081 041c A0       		.byte	-96
  1082 041d 02       		.byte	2
  1083 041e A2       		.byte	-94
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 20
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 20
 
 
  1084 041f 40       		.byte	64
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1138 0455 03       		.byte	3
  1139 0456 13       		.byte	19
  1140 0457 04       		.byte	4
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 21
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 21
 
 
  1141 0458 16       		.byte	22
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1195 048e 59       		.byte	89
  1196 048f 04       		.byte	4
  1197 0490 5A       		.byte	90
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 22
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 22
 
 
  1198 0491 04       		.byte	4
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1252 04c7 01       		.byte	1
  1253 04c8 C0       		.byte	-64
  1254 04c9 30       		.byte	48
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 23
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 23
 
 
  1255 04ca C1       		.byte	-63
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1309 0500 EE       		.byte	-18
  1310 0501 C0       		.byte	-64
  1311 0502 00       		.byte	0
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 24
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 24
 
 
  1312 0503 04       		.byte	4
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1366 0539 04       		.byte	4
  1367 053a 3A       		.byte	58
  1368 053b 01       		.byte	1
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 25
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 25
 
 
  1369 053c 3B       		.byte	59
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1423 0572 A7       		.byte	-89
  1424 0573 80       		.byte	-128
  1425 0574 AB       		.byte	-85
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 26
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 26
 
 
  1426 0575 10       		.byte	16
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1480 05ab 41       		.byte	65
  1481 05ac 58       		.byte	88
  1482 05ad 04       		.byte	4
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 27
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 27
 
 
  1483 05ae 59       		.byte	89
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1537 05e4 C4       		.byte	-60
  1538 05e5 01       		.byte	1
  1539 05e6 C5       		.byte	-59
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 28
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 28
 
 
  1540 05e7 FE       		.byte	-2
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1594 061d 40       		.byte	64
  1595 061e 0B       		.byte	11
  1596 061f 20       		.byte	32
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 29
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 29
 
 
  1597 0620 0F       		.byte	15
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1651 0656 69       		.byte	105
  1652 0657 50       		.byte	80
  1653 0658 6B       		.byte	107
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 30
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 30
 
 
  1654 0659 50       		.byte	80
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1708 068f 42       		.byte	66
  1709 0690 DE       		.byte	-34
  1710 0691 0A       		.byte	10
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 31
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 31
 
 
  1711 0692 E4       		.byte	-28
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1765 06c8 80       		.byte	-128
  1766 06c9 03       		.byte	3
  1767 06ca 81       		.byte	-127
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 32
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 32
 
 
  1768 06cb 02       		.byte	2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1822 0701 F0       		.byte	-16
  1823 0702 CF       		.byte	-49
  1824 0703 05       		.byte	5
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 33
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 33
 
 
  1825 0704 D0       		.byte	-48
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1879 073a 20       		.byte	32
  1880 073b 10       		.byte	16
  1881 073c 22       		.byte	34
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 34
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 34
 
 
  1882 073d 08       		.byte	8
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1936 0773 82       		.byte	-126
  1937 0774 82       		.byte	-126
  1938 0775 02       		.byte	2
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 35
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 35
 
 
  1939 0776 88       		.byte	-120
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  1993 07ac 3A       		.byte	58
  1994 07ad 80       		.byte	-128
  1995 07ae 3B       		.byte	59
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 36
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 36
 
 
  1996 07af 40       		.byte	64
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2050 07e5 0D       		.byte	13
  2051 07e6 C4       		.byte	-60
  2052 07e7 0F       		.byte	15
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 37
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 37
 
 
  2053 07e8 CA       		.byte	-54
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2107 081e DC       		.byte	-36
  2108 081f 01       		.byte	1
  2109 0820 00       		.byte	0
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 38
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 38
 
 
  2110 0821 10       		.byte	16
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2164 0857 40       		.byte	64
  2165 0858 4C       		.byte	76
  2166 0859 18       		.byte	24
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 39
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 39
 
 
  2167 085a 03       		.byte	3
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2221 0890 00       		.byte	0
  2222 0891 00       		.byte	0
  2223 0892 10       		.byte	16
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 40
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 40
 
 
  2224 0893 44       		.byte	68
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2278 08c9 00       		.byte	0
  2279 08ca 00       		.byte	0
  2280 08cb 00       		.byte	0
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 41
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 41
 
 
  2281 08cc 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2335              		.align	2
  2336              		.type	cy_meta_custnvl, %object
  2337              		.size	cy_meta_custnvl, 4
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 42
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 42
 
 
  2338              	cy_meta_custnvl:
@@ -2505,51 +2505,51 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2375 0006 00000000 		.4byte	.Ldebug_abbrev0
  2376 000a 04       		.byte	0x4
  2377 000b 01       		.uleb128 0x1
- 2378 000c 24000000 		.4byte	.LASF17
+ 2378 000c 76000000 		.4byte	.LASF17
  2379 0010 0C       		.byte	0xc
- 2380 0011 DB010000 		.4byte	.LASF18
- 2381 0015 69010000 		.4byte	.LASF19
+ 2380 0011 D0010000 		.4byte	.LASF18
+ 2381 0015 0A000000 		.4byte	.LASF19
  2382 0019 00000000 		.4byte	.Ldebug_line0
  2383 001d 02       		.uleb128 0x2
  2384 001e 01       		.byte	0x1
  2385 001f 06       		.byte	0x6
- 2386 0020 CF010000 		.4byte	.LASF0
+ 2386 0020 C4010000 		.4byte	.LASF0
  2387 0024 03       		.uleb128 0x3
  2388 0025 00000000 		.4byte	.LASF9
  2389 0029 01       		.byte	0x1
  2390 002a 1D       		.byte	0x1d
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 43
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 43
 
 
  2391 002b 2F000000 		.4byte	0x2f
  2392 002f 02       		.uleb128 0x2
  2393 0030 01       		.byte	0x1
  2394 0031 08       		.byte	0x8
- 2395 0032 16000000 		.4byte	.LASF1
+ 2395 0032 68000000 		.4byte	.LASF1
  2396 0036 02       		.uleb128 0x2
  2397 0037 02       		.byte	0x2
  2398 0038 05       		.byte	0x5
- 2399 0039 D7000000 		.4byte	.LASF2
+ 2399 0039 B1010000 		.4byte	.LASF2
  2400 003d 02       		.uleb128 0x2
  2401 003e 02       		.byte	0x2
  2402 003f 07       		.byte	0x7
- 2403 0040 C4000000 		.4byte	.LASF3
+ 2403 0040 16010000 		.4byte	.LASF3
  2404 0044 02       		.uleb128 0x2
  2405 0045 04       		.byte	0x4
  2406 0046 05       		.byte	0x5
- 2407 0047 C6010000 		.4byte	.LASF4
+ 2407 0047 BB010000 		.4byte	.LASF4
  2408 004b 02       		.uleb128 0x2
  2409 004c 04       		.byte	0x4
  2410 004d 07       		.byte	0x7
- 2411 004e B2000000 		.4byte	.LASF5
+ 2411 004e 04010000 		.4byte	.LASF5
  2412 0052 02       		.uleb128 0x2
  2413 0053 08       		.byte	0x8
  2414 0054 05       		.byte	0x5
- 2415 0055 5B010000 		.4byte	.LASF6
+ 2415 0055 A3010000 		.4byte	.LASF6
  2416 0059 02       		.uleb128 0x2
  2417 005a 08       		.byte	0x8
  2418 005b 07       		.byte	0x7
- 2419 005c 10010000 		.4byte	.LASF7
+ 2419 005c 58010000 		.4byte	.LASF7
  2420 0060 04       		.uleb128 0x4
  2421 0061 04       		.byte	0x4
  2422 0062 05       		.byte	0x5
@@ -2557,9 +2557,9 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2424 0067 02       		.uleb128 0x2
  2425 0068 04       		.byte	0x4
  2426 0069 07       		.byte	0x7
- 2427 006a 03010000 		.4byte	.LASF8
+ 2427 006a 4B010000 		.4byte	.LASF8
  2428 006e 03       		.uleb128 0x3
- 2429 006f 27010000 		.4byte	.LASF10
+ 2429 006f 6F010000 		.4byte	.LASF10
  2430 0073 02       		.byte	0x2
  2431 0074 18       		.byte	0x18
  2432 0075 24000000 		.4byte	0x24
@@ -2573,12 +2573,12 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2440 008a 02       		.uleb128 0x2
  2441 008b 04       		.byte	0x4
  2442 008c 07       		.byte	0x7
- 2443 008d 52010000 		.4byte	.LASF11
+ 2443 008d 9A010000 		.4byte	.LASF11
  2444 0091 07       		.uleb128 0x7
  2445 0092 6E000000 		.4byte	0x6e
  2446 0096 08       		.uleb128 0x8
- 2447 0097 F1000000 		.4byte	.LASF12
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 44
+ 2447 0097 39010000 		.4byte	.LASF12
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 44
 
 
  2448 009b 03       		.byte	0x3
@@ -2597,7 +2597,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2461 00ba 03       		.byte	0x3
  2462 00bb 00       		.byte	0
  2463 00bc 0A       		.uleb128 0xa
- 2464 00bd E1000000 		.4byte	.LASF13
+ 2464 00bd 29010000 		.4byte	.LASF13
  2465 00c1 03       		.byte	0x3
  2466 00c2 4B01     		.2byte	0x14b
  2467 00c4 CE000000 		.4byte	0xce
@@ -2607,7 +2607,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2471 00ce 07       		.uleb128 0x7
  2472 00cf AC000000 		.4byte	0xac
  2473 00d3 0A       		.uleb128 0xa
- 2474 00d4 44010000 		.4byte	.LASF14
+ 2474 00d4 8C010000 		.4byte	.LASF14
  2475 00d8 03       		.byte	0x3
  2476 00d9 5901     		.2byte	0x159
  2477 00db E5000000 		.4byte	0xe5
@@ -2624,7 +2624,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2488 00f8 FF       		.byte	0xff
  2489 00f9 00       		.byte	0
  2490 00fa 0A       		.uleb128 0xa
- 2491 00fb 2F010000 		.4byte	.LASF15
+ 2491 00fb 77010000 		.4byte	.LASF15
  2492 00ff 03       		.byte	0x3
  2493 0100 6701     		.2byte	0x167
  2494 0102 0C010000 		.4byte	0x10c
@@ -2638,13 +2638,13 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2502 0116 21010000 		.4byte	0x121
  2503 011a 09       		.uleb128 0x9
  2504 011b 8A000000 		.4byte	0x8a
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 45
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 45
 
 
  2505 011f 0B       		.byte	0xb
  2506 0120 00       		.byte	0
  2507 0121 0A       		.uleb128 0xa
- 2508 0122 0A000000 		.4byte	.LASF16
+ 2508 0122 5C000000 		.4byte	.LASF16
  2509 0126 03       		.byte	0x3
  2510 0127 9401     		.2byte	0x194
  2511 0129 33010000 		.4byte	0x133
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2559 0027 04       		.uleb128 0x4
  2560 0028 24       		.uleb128 0x24
  2561 0029 00       		.byte	0
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 46
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 46
 
 
  2562 002a 0B       		.uleb128 0xb
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2616 0060 13       		.uleb128 0x13
  2617 0061 2F       		.uleb128 0x2f
  2618 0062 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 47
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 47
 
 
  2619 0063 00       		.byte	0
@@ -2802,119 +2802,119 @@ ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 1
  2653 0000 5F5F7569 		.ascii	"__uint8_t\000"
  2653      6E74385F 
  2653      7400
- 2654              	.LASF16:
- 2655 000a 63795F6D 		.ascii	"cy_metadata\000"
- 2655      65746164 
- 2655      61746100 
- 2656              	.LASF1:
- 2657 0016 756E7369 		.ascii	"unsigned char\000"
- 2657      676E6564 
- 2657      20636861 
- 2657      7200
- 2658              	.LASF17:
- 2659 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2659      43313120 
- 2659      352E342E 
- 2659      31203230 
- 2659      31363036 
- 2660 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 48
+ 2654              	.LASF19:
+ 2655 000a 433A5C55 		.ascii	"C:\\Users\\ekatr\\Documents\\Uni\\FYP\\Movement Sys"
+ 2655      73657273 
+ 2655      5C656B61 
+ 2655      74725C44 
+ 2655      6F63756D 
+ 2656 0037 74656D5C 		.ascii	"tem\\Game Piece Movement System.cydsn\000"
+ 2656      47616D65 
+ 2656      20506965 
+ 2656      6365204D 
+ 2656      6F76656D 
+ 2657              	.LASF16:
+ 2658 005c 63795F6D 		.ascii	"cy_metadata\000"
+ 2658      65746164 
+ 2658      61746100 
+ 2659              	.LASF1:
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 48
 
 
- 2660      20726576 
- 2660      6973696F 
- 2660      6E203233 
- 2660      37373135 
- 2661 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2661      66756E63 
- 2661      74696F6E 
- 2661      2D736563 
- 2661      74696F6E 
- 2662              	.LASF5:
- 2663 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
- 2663      20756E73 
- 2663      69676E65 
- 2663      6420696E 
- 2663      7400
- 2664              	.LASF3:
- 2665 00c4 73686F72 		.ascii	"short unsigned int\000"
- 2665      7420756E 
- 2665      7369676E 
- 2665      65642069 
- 2665      6E7400
- 2666              	.LASF2:
- 2667 00d7 73686F72 		.ascii	"short int\000"
- 2667      7420696E 
- 2667      7400
- 2668              	.LASF13:
- 2669 00e1 63795F6D 		.ascii	"cy_meta_custnvl\000"
- 2669      6574615F 
- 2669      63757374 
- 2669      6E766C00 
- 2670              	.LASF12:
- 2671 00f1 63795F6D 		.ascii	"cy_meta_configecc\000"
- 2671      6574615F 
- 2671      636F6E66 
- 2671      69676563 
- 2671      6300
- 2672              	.LASF8:
- 2673 0103 756E7369 		.ascii	"unsigned int\000"
- 2673      676E6564 
- 2673      20696E74 
- 2673      00
- 2674              	.LASF7:
- 2675 0110 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2675      206C6F6E 
- 2675      6720756E 
- 2675      7369676E 
- 2675      65642069 
- 2676              	.LASF10:
- 2677 0127 75696E74 		.ascii	"uint8_t\000"
- 2677      385F7400 
- 2678              	.LASF15:
- 2679 012f 63795F6D 		.ascii	"cy_meta_flashprotect\000"
- 2679      6574615F 
- 2679      666C6173 
- 2679      6870726F 
- 2679      74656374 
- 2680              	.LASF14:
-ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccarrPI6.s 			page 49
+ 2660 0068 756E7369 		.ascii	"unsigned char\000"
+ 2660      676E6564 
+ 2660      20636861 
+ 2660      7200
+ 2661              	.LASF17:
+ 2662 0076 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2662      43313120 
+ 2662      352E342E 
+ 2662      31203230 
+ 2662      31363036 
+ 2663 00a9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2663      20726576 
+ 2663      6973696F 
+ 2663      6E203233 
+ 2663      37373135 
+ 2664 00dc 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2664      66756E63 
+ 2664      74696F6E 
+ 2664      2D736563 
+ 2664      74696F6E 
+ 2665              	.LASF5:
+ 2666 0104 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2666      20756E73 
+ 2666      69676E65 
+ 2666      6420696E 
+ 2666      7400
+ 2667              	.LASF3:
+ 2668 0116 73686F72 		.ascii	"short unsigned int\000"
+ 2668      7420756E 
+ 2668      7369676E 
+ 2668      65642069 
+ 2668      6E7400
+ 2669              	.LASF13:
+ 2670 0129 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2670      6574615F 
+ 2670      63757374 
+ 2670      6E766C00 
+ 2671              	.LASF12:
+ 2672 0139 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2672      6574615F 
+ 2672      636F6E66 
+ 2672      69676563 
+ 2672      6300
+ 2673              	.LASF8:
+ 2674 014b 756E7369 		.ascii	"unsigned int\000"
+ 2674      676E6564 
+ 2674      20696E74 
+ 2674      00
+ 2675              	.LASF7:
+ 2676 0158 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2676      206C6F6E 
+ 2676      6720756E 
+ 2676      7369676E 
+ 2676      65642069 
+ 2677              	.LASF10:
+ 2678 016f 75696E74 		.ascii	"uint8_t\000"
+ 2678      385F7400 
+ARM GAS  C:\Users\ekatr\AppData\Local\Temp\ccgdktsl.s 			page 49
 
 
- 2681 0144 63795F6D 		.ascii	"cy_meta_wonvl\000"
- 2681      6574615F 
- 2681      776F6E76 
- 2681      6C00
- 2682              	.LASF11:
- 2683 0152 73697A65 		.ascii	"sizetype\000"
- 2683      74797065 
- 2683      00
- 2684              	.LASF6:
- 2685 015b 6C6F6E67 		.ascii	"long long int\000"
- 2685      206C6F6E 
- 2685      6720696E 
- 2685      7400
- 2686              	.LASF19:
- 2687 0169 433A5C55 		.ascii	"C:\\Users\\ekatr\\Documents\\Uni\\FYP\\Game Piece M"
- 2687      73657273 
- 2687      5C656B61 
- 2687      74725C44 
- 2687      6F63756D 
- 2688 0196 6F76656D 		.ascii	"ovement System\\Game Piece Movement System.cydsn\000"
- 2688      656E7420 
- 2688      53797374 
- 2688      656D5C47 
- 2688      616D6520 
+ 2679              	.LASF15:
+ 2680 0177 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2680      6574615F 
+ 2680      666C6173 
+ 2680      6870726F 
+ 2680      74656374 
+ 2681              	.LASF14:
+ 2682 018c 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2682      6574615F 
+ 2682      776F6E76 
+ 2682      6C00
+ 2683              	.LASF11:
+ 2684 019a 73697A65 		.ascii	"sizetype\000"
+ 2684      74797065 
+ 2684      00
+ 2685              	.LASF6:
+ 2686 01a3 6C6F6E67 		.ascii	"long long int\000"
+ 2686      206C6F6E 
+ 2686      6720696E 
+ 2686      7400
+ 2687              	.LASF2:
+ 2688 01b1 73686F72 		.ascii	"short int\000"
+ 2688      7420696E 
+ 2688      7400
  2689              	.LASF4:
- 2690 01c6 6C6F6E67 		.ascii	"long int\000"
+ 2690 01bb 6C6F6E67 		.ascii	"long int\000"
  2690      20696E74 
  2690      00
  2691              	.LASF0:
- 2692 01cf 7369676E 		.ascii	"signed char\000"
+ 2692 01c4 7369676E 		.ascii	"signed char\000"
  2692      65642063 
  2692      68617200 
  2693              	.LASF18:
- 2694 01db 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2694 01d0 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
  2694      72617465 
  2694      645F536F 
  2694      75726365 

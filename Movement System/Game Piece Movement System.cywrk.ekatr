@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Game Piece Movement System\Game Piece Movement System\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Game Piece Movement System\Game Piece Movement System\TopDesign">
 <ExpandedNodeIds>
 <v>Game Piece Movement System</v>
 <v>Game Piece Movement System\Game Piece Movement System</v>
@@ -208,9 +208,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Game Piece Movement System.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Game Piece Movement System.cydsn\main.c" />
 <name v=".\Game Piece Movement System.cydsn\Game Piece Movement System.cydwr" />
+<name v=".\Game Piece Movement System.cydsn\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -218,7 +218,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1298, 676" SelectedTabbedMdiWindow="b4b60d5a-c4fd-4258-8dd7-9ba3ae6de810"><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Game Piece Movement System\Game Piece Movement System.cydsn\TopDesign\TopDesign.cysch" Guid="e3894f7e-55ea-47b6-9d94-c3f964a7ba82" /><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Game Piece Movement System\Game Piece Movement System.cydsn\main.c" Guid="b4b60d5a-c4fd-4258-8dd7-9ba3ae6de810" /><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Game Piece Movement System\Game Piece Movement System.cydsn\Game Piece Movement System.cydwr" Guid="212e1d04-5302-4388-81b8-a068b7499fd4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="847bc27f-52d6-48f3-a099-bd3dfab9248b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1298, 676" SelectedTabbedMdiWindow="7118d865-e5f7-4884-a0b3-8c26785d7bab"><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Movement System\Game Piece Movement System.cydsn\main.c" Guid="7118d865-e5f7-4884-a0b3-8c26785d7bab" /><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Movement System\Game Piece Movement System.cydsn\Game Piece Movement System.cydwr" Guid="1d468301-ae18-42ac-a193-30950a6d6687" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="847bc27f-52d6-48f3-a099-bd3dfab9248b" /><DocumentWindow Key="C:\Users\ekatr\Documents\Uni\FYP\Movement System\Game Piece Movement System.cydsn\TopDesign\TopDesign.cysch" Guid="e2bd75c0-82e3-4360-89e5-ac9dd3c37506" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

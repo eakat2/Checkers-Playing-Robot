@@ -58,7 +58,7 @@ int main(void)
     float *coords;
     
     float home[] = {90, 29, 120, 108.2};
-    jump_to(90, 90, 90, 0);
+    jump_to(90, 90, 180, 90);
 //    coords = get_coords(1,2,1,1);
 //    coords = inverse_Kinematics(coords);
 //        UART_1_PutString("Moving to 1,2\n");

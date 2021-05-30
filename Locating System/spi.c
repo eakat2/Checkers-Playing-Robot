@@ -15,13 +15,13 @@ int main()
       board[i][j] = 0;
     }
   }
-  
+  board[2][3] = 1;
   print_board(board);
 
 
   return 0;
 }
-
+ 
 void print_board(int board[8][8]) {
   printf("\n\n");
   printf("\t┌───┬───┬───┬───┬───┬───┬───┬───┐\n");

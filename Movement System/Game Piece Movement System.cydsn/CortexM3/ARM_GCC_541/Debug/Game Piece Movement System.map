@@ -907,85 +907,84 @@ END GROUP
  .text.initalize
                 0x00000158       0x34 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x00000158                initalize
- .text.main     0x0000018c       0x24 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text.main     0x0000018c       0x28 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x0000018c                main
  .text.CyClockStartupError
-                0x000001b0        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001b4        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cfg_write_bytes32
-                0x000001b4       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001b8       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AnalogSetDefault
-                0x000001e8       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001ec       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYMEMZERO
-                0x00000210        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000214        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ClockSetup
-                0x0000021c       0xd8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000220       0xd8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPY
-                0x000002f4        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000002f8        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cyfitter_cfg
-                0x000002fc      0x120 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000002fc                cyfitter_cfg
+                0x00000300      0x120 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000300                cyfitter_cfg
  .text.IntDefaultHandler
-                0x0000041c       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000041c                IntDefaultHandler
- .text.Start_c  0x0000042c       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000042c                Start_c
+                0x00000420       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000420                IntDefaultHandler
+ .text.Start_c  0x00000430       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000430                Start_c
  .text.initialize_psoc
-                0x00000478       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000478                initialize_psoc
+                0x0000047c       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000047c                initialize_psoc
  .text.PWM_1_Enable
-                0x000004e0       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
-                0x000004e0                PWM_1_Enable
+                0x000004e4       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
+                0x000004e4                PWM_1_Enable
  .text.PWM_1_WriteCompare
-                0x000004f0        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
-                0x000004f0                PWM_1_WriteCompare
+                0x000004f4        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
+                0x000004f4                PWM_1_WriteCompare
  .text.PWM_2_Enable
-                0x000004fc       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
-                0x000004fc                PWM_2_Enable
+                0x00000500       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
+                0x00000500                PWM_2_Enable
  .text.PWM_2_WriteCompare
-                0x0000050c        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
-                0x0000050c                PWM_2_WriteCompare
+                0x00000510        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
+                0x00000510                PWM_2_WriteCompare
  .text.PWM_3_Enable
-                0x00000518       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
-                0x00000518                PWM_3_Enable
+                0x0000051c       0x10 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
+                0x0000051c                PWM_3_Enable
  .text.PWM_3_WriteCompare
-                0x00000528        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
-                0x00000528                PWM_3_WriteCompare
+                0x0000052c        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
+                0x0000052c                PWM_3_WriteCompare
  .text.PWM_4_WriteCompare
-                0x00000534        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_4.o)
-                0x00000534                PWM_4_WriteCompare
- .text.CyDelay  0x00000540       0x2c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyLib.o)
-                0x00000540                CyDelay
+                0x00000538        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_4.o)
+                0x00000538                PWM_4_WriteCompare
+ .text.CyDelay  0x00000544       0x2c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyLib.o)
+                0x00000544                CyDelay
  .text.SPI_Enable
-                0x0000056c       0x30 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x0000056c                SPI_Enable
+                0x00000570       0x30 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x00000570                SPI_Enable
  .text.SPI_ReadTxStatus
-                0x0000059c        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x0000059c                SPI_ReadTxStatus
+                0x000005a0        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x000005a0                SPI_ReadTxStatus
  .text.SPI_ReadRxStatus
-                0x000005a8        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x000005a8                SPI_ReadRxStatus
+                0x000005ac        0xc .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x000005ac                SPI_ReadRxStatus
  .text.SPI_ClearFIFO
-                0x000005b4       0x3c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x000005b4                SPI_ClearFIFO
+                0x000005b8       0x3c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x000005b8                SPI_ClearFIFO
  .text.SPI_Init
-                0x000005f0       0x28 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x000005f0                SPI_Init
+                0x000005f4       0x28 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x000005f4                SPI_Init
  .text.SPI_Start
-                0x00000618       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                0x00000618                SPI_Start
+                0x0000061c       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                0x0000061c                SPI_Start
  .text.UART_1_Init
-                0x00000634       0x28 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
-                0x00000634                UART_1_Init
+                0x00000638       0x28 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
+                0x00000638                UART_1_Init
  .text.UART_1_Enable
-                0x0000065c       0x38 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
-                0x0000065c                UART_1_Enable
+                0x00000660       0x38 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
+                0x00000660                UART_1_Enable
  .text.UART_1_Start
-                0x00000694       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
-                0x00000694                UART_1_Start
+                0x00000698       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
+                0x00000698                UART_1_Start
  .text.UART_1_IntClock_Start
-                0x000006b0       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1_IntClock.o)
-                0x000006b0                UART_1_IntClock_Start
- *fill*         0x000006cc        0x4 
+                0x000006b4       0x1c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1_IntClock.o)
+                0x000006b4                UART_1_IntClock_Start
  .text          0x000006d0       0x20 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyBootAsmGnu.o)
                 0x000006d0                CyDelayCycles
                 0x000006e0                CyEnterCriticalSection
@@ -1276,7 +1275,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x575f
+.debug_info     0x00000000     0x5754
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x833 .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_info    0x00000833      0x5ba .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -1291,9 +1290,9 @@ END GROUP
  .debug_info    0x00003dcf      0x4b9 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
  .debug_info    0x00004288      0x60c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
  .debug_info    0x00004894      0x283 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1_IntClock.o)
- .debug_info    0x00004b17       0xab .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyBootAsmGnu.o)
- .debug_info    0x00004bc2      0x64d .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyFlash.o)
- .debug_info    0x0000520f      0x550 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CySpc.o)
+ .debug_info    0x00004b17       0xa0 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyBootAsmGnu.o)
+ .debug_info    0x00004bb7      0x64d .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyFlash.o)
+ .debug_info    0x00005204      0x550 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CySpc.o)
 
 .debug_abbrev   0x00000000     0x1649
  *(.debug_abbrev)
@@ -1377,38 +1376,38 @@ END GROUP
  .debug_frame   0x00001e88       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .debug_frame   0x00001eb0       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x20c5
+.debug_str      0x00000000     0x20ba
  *(.debug_str)
- .debug_str     0x00000000      0x3fb .\CortexM3\ARM_GCC_541\Debug\main.o
-                                0x44a (size before relaxing)
- .debug_str     0x000003fb      0x1b5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x35f (size before relaxing)
- .debug_str     0x000005b0       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-                                0x1ff (size before relaxing)
- .debug_str     0x0000062f      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                                0x325 (size before relaxing)
- .debug_str     0x00000773      0x191 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
-                                0x379 (size before relaxing)
- .debug_str     0x00000904      0x133 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
-                                0x379 (size before relaxing)
- .debug_str     0x00000a37      0x133 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
-                                0x379 (size before relaxing)
- .debug_str     0x00000b6a      0x140 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_4.o)
-                                0x379 (size before relaxing)
- .debug_str     0x00000caa      0x810 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyLib.o)
-                                0xa62 (size before relaxing)
- .debug_str     0x000014ba      0x365 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(cyPm.o)
-                                0x74e (size before relaxing)
- .debug_str     0x0000181f      0x21c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
-                                0x403 (size before relaxing)
- .debug_str     0x00001a3b      0x293 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
-                                0x4ce (size before relaxing)
- .debug_str     0x00001cce      0x197 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1_IntClock.o)
-                                0x369 (size before relaxing)
- .debug_str     0x00001e65      0x1b4 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyFlash.o)
-                                0x3db (size before relaxing)
- .debug_str     0x00002019       0xac .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CySpc.o)
-                                0x353 (size before relaxing)
+ .debug_str     0x00000000      0x3f0 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x43f (size before relaxing)
+ .debug_str     0x000003f0      0x1b5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x354 (size before relaxing)
+ .debug_str     0x000005a5       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x1f4 (size before relaxing)
+ .debug_str     0x00000624      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x31a (size before relaxing)
+ .debug_str     0x00000768      0x191 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_1.o)
+                                0x36e (size before relaxing)
+ .debug_str     0x000008f9      0x133 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_2.o)
+                                0x36e (size before relaxing)
+ .debug_str     0x00000a2c      0x133 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_3.o)
+                                0x36e (size before relaxing)
+ .debug_str     0x00000b5f      0x140 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(PWM_4.o)
+                                0x36e (size before relaxing)
+ .debug_str     0x00000c9f      0x810 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyLib.o)
+                                0xa57 (size before relaxing)
+ .debug_str     0x000014af      0x365 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(cyPm.o)
+                                0x743 (size before relaxing)
+ .debug_str     0x00001814      0x21c .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(SPI.o)
+                                0x3f8 (size before relaxing)
+ .debug_str     0x00001a30      0x293 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1.o)
+                                0x4c3 (size before relaxing)
+ .debug_str     0x00001cc3      0x197 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(UART_1_IntClock.o)
+                                0x35e (size before relaxing)
+ .debug_str     0x00001e5a      0x1b4 .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CyFlash.o)
+                                0x3d0 (size before relaxing)
+ .debug_str     0x0000200e       0xac .\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.a(CySpc.o)
+                                0x348 (size before relaxing)
 
 .debug_loc      0x00000000     0x249b
  *(.debug_loc)
@@ -1604,4 +1603,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(C:\Users\ekatr\Documents\Uni\FYP\Game Piece Movement System\Game Piece Movement System.cydsn\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.elf elf32-littlearm)
+OUTPUT(C:\Users\ekatr\Documents\Uni\FYP\Movement System\Game Piece Movement System.cydsn\CortexM3\ARM_GCC_541\Debug\Game Piece Movement System.elf elf32-littlearm)
